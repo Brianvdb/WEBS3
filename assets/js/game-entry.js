@@ -1,8 +1,9 @@
-function Game(id, status, enemyId, enemyName) {
+function Game(id, status, enemyId, enemyName, isAI) {
 	this.id = id;
 	this.status = status;
 	this.enemyId = enemyId;
 	this.enemyName = enemyName;
+    this.isAI = isAI;
 }
 
 Game.prototype = {
@@ -13,6 +14,7 @@ Game.prototype = {
 	getId: function() { return this.id; },
 	getStatus: function() { return this.status },
 	getEnemyId: function() { return this.enemyId },
-	getEnemyName: function() { return this.enemyName }
+	getEnemyName: function() { return this.enemyName },
+    isAI: function() { return this.isAI }
 }
 
