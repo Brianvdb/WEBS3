@@ -3,11 +3,7 @@ var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImJjZi52YW5kZW5icm9la0BzdHVkZW
 $(function() {
 	var app = new App(token);
 	
-	app.getShips(function(ships) {
-        for(var i = 0; i < ships.length; i++) {
-            console.log(ships[i].getName());
-        }
-    });
+	app.getShips();
 	
 	/*app.getGameList(function(gameList) {
 		var games = gameList.getGames();

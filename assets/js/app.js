@@ -5,18 +5,18 @@ function App(token) {
 }
 
 App.prototype = {
-	getGameList: function(callback) {
+	requestGameList: function() {
 		var url = "http://zeeslagavans.herokuapp.com/users/me/games?token=" + this.token;
+        var self = this;
 		$.get( url, function( data ) {
 			console.log(data);
-			// return gamelist
-			callback(new Gamelist(data));
+			self.onGameListReceived(new Gamelist(data));
 		}).fail(function() {
 			// TODO: handle fail
 		});
 	},
 	
-	newGame: function(callback) {
+	requestNewGame: function() {
 		var url = "http://zeeslagavans.herokuapp.com/games?token=" + this.token;
 		$.get( url, function( data ) {
 			// TODO: handle data
@@ -26,7 +26,7 @@ App.prototype = {
 		});
 	},
 	
-	getGame: function(callback, id) {
+	requestGame: function(id) {
 		var url = "http://zeeslagavans.herokuapp.com/games/" + id + " ?token=" + this.token;
 		$.get( url, function( data ) {
 			// TODO: handle data
@@ -36,15 +36,16 @@ App.prototype = {
 		});
 	},
 	
-	getShips: function(callback) {
+	requestShips: function() {
 		var url = "http://zeeslagavans.herokuapp.com/ships?token=" + this.token;
+        var self = this;
 		$.get( url, function( data ) {
             var ships = [];
 			for(var i = 0; i < data.length; i++) {
                 var s = data[i];
                 ships[i] = new Ship(s._id, s.length, s.name);
             }
-            callback(ships);
+            self.onShipsReceived(ships);
 		}).fail(function() {
 			// TODO: handle fail
 		});
@@ -52,6 +53,7 @@ App.prototype = {
 
     onShipsReceived: function(ships) {
         // update board view with ships
+        console.log("ships received");
     },
 	
 	onGameListReceived: function(gameList) {
