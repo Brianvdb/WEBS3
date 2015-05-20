@@ -39,12 +39,20 @@ App.prototype = {
 	getShips: function(callback) {
 		var url = "http://zeeslagavans.herokuapp.com/ships?token=" + this.token;
 		$.get( url, function( data ) {
-			// TODO: handle data
-			console.log(data);
+            var ships = [];
+			for(var i = 0; i < data.length; i++) {
+                var s = data[i];
+                ships[i] = new Ship(s._id, s.length, s.name);
+            }
+            callback(ships);
 		}).fail(function() {
 			// TODO: handle fail
 		});
 	},
+
+    onShipsReceived: function(ships) {
+        // update board view with ships
+    },
 	
 	onGameListReceived: function(gameList) {
 		// update views..
