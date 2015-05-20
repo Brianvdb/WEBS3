@@ -1,11 +1,11 @@
 function Gamelist(games) {
-	this.games = [];
-	// parse games
+	this.gameEntries = [];
+	// parse gameEntries
 	for(var i = 0; i < games.length; i++) {
-		this.games[i] = new GameEntry(games[i]._id, games[i].status, games[i].enemyId, games[i].enemyName, games[i].isAI);
+		this.gameEntries[i] = new GameEntry(games[i]._id, games[i].status, games[i].player1, games[i].player2, games[i].isAI);
 	}
 }
 
 Gamelist.prototype = {
-	getGames: function() { return this.games }
+	getGames: function() { return this.gameEntries }
 }

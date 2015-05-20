@@ -1,4 +1,4 @@
-// Controller, API
+// Controller, interacts with the Zeeslag API
 
 function App(token) {
 	this.token = token;
@@ -28,9 +28,11 @@ App.prototype = {
 	
 	requestGame: function(id) {
 		var url = "http://zeeslagavans.herokuapp.com/games/" + id + " ?token=" + this.token;
+        var self = this;
 		$.get( url, function( data ) {
-			// TODO: handle data
 			console.log(data);
+
+
 		}).fail(function() {
 			// TODO: handle fail
 		});
@@ -58,6 +60,11 @@ App.prototype = {
 	
 	onGameListReceived: function(gameList) {
 		// update views..
+        for(var i = 0; i < gameList.getGames().length; i++) {
+            var gameEntry = gameList.getGames()[i];
+
+            this.requestGame(gameEntry.getId());
+        }
 	},
 	
 	onGameReceived: function(game) {
