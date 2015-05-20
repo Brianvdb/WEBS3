@@ -1,4 +1,4 @@
-var Gamelist = function(games) {
+function Gamelist(games) {
 	this.games = [];
 	// parse games
 	for(var i = 0; i < games.length; i++) {

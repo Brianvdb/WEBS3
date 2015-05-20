@@ -1,6 +1,6 @@
 // Controller, API
 
-var App = function(token) {
+function App(token) {
 	this.token = token;
 }
 

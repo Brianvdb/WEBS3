@@ -1,4 +1,4 @@
-var Game = function(id, status, enemyId, enemyName) {
+function Game(id, status, enemyId, enemyName) {
 	this.id = id;
 	this.status = status;
 	this.enemyId = enemyId;

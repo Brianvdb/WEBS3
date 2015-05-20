@@ -1,4 +1,4 @@
-var Square = function(x, y) {
+function Square(x, y) {
 	this.x = x;
 	this.y = y;
 	this.shot = false;

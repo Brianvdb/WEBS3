@@ -1,4 +1,4 @@
-var Board = function(size, squares) {
+function Board(size, squares) {
 	this.size = size;
 	
 	// if squares are given, set it. Otherwise make them.
