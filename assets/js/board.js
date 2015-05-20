@@ -1,5 +1,6 @@
 function Board(size, squares) {
 	this.size = size;
+    this.ships = [];
 	
 	// if squares are given, set it. Otherwise make them.
 	if(typeof squares !== 'undefined') {
@@ -54,6 +55,13 @@ Board.prototype = {
 	
 	bindListeners: function() {
 		$('td').click( $.proxy(this.onClick, this) );
-	}
+	},
+
+    addShip: function(ship) {
+        // TODO: implement check whether given ship can be placed on the board
+
+        this.ships.push(ship);
+        return true;
+    }
 }
 

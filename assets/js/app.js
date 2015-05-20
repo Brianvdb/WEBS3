@@ -18,9 +18,11 @@ App.prototype = {
 	
 	requestNewGame: function() {
 		var url = "http://zeeslagavans.herokuapp.com/games?token=" + this.token;
+        var self = this;
 		$.get( url, function( data ) {
 			// TODO: handle data
 			console.log(data);
+            self.onNewGameCreated(data);
 		}).fail(function() {
 			// TODO: handle fail
 		});
@@ -31,7 +33,21 @@ App.prototype = {
         var self = this;
 		$.get( url, function( data ) {
 			console.log(data);
+            var game;
 
+            if(data.status == 'que') {
+                game = new Game(data._id, data.status);
+            } else if(data.status == 'setup') {
+                game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName);
+            } else if(data.status == 'started' || data.status == 'done') {
+                // TODO: parse boards
+                game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName);
+            } else {
+                console.log("Unknown game state: " + data.status);
+                return;
+            }
+
+            self.onGameReceived(game);
 
 		}).fail(function() {
 			// TODO: handle fail
@@ -53,6 +69,15 @@ App.prototype = {
 		});
 	},
 
+    postGameBoard: function(game) {
+        // TODO: implement this
+
+    },
+
+    shoot: function(game, x, y) {
+
+    },
+
     onShipsReceived: function(ships) {
         // update board view with ships
         console.log("ships received");
@@ -68,7 +93,7 @@ App.prototype = {
 	},
 	
 	onGameReceived: function(game) {
-		
+		console.log("id: " + game.getId() + ", status: " + game.getStatus() + ", your turn: " + game.isYourTurn() + ", enemyId: " + game.getEnemyId() + ", enemyName: " + game.getEnemyName());
 	},
 	
 	onNewGameCreated: function(data) {
