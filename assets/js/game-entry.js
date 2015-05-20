@@ -1,4 +1,6 @@
-function Game(id, status, enemyId, enemyName, isAI) {
+// GameEntry: initialized by GameList
+
+function GameEntry(id, status, enemyId, enemyName, isAI) {
 	this.id = id;
 	this.status = status;
 	this.enemyId = enemyId;
@@ -6,11 +8,7 @@ function Game(id, status, enemyId, enemyName, isAI) {
     this.isAI = isAI;
 }
 
-Game.prototype = {
-	setBoard: function(board) { this.board = board; },
-	getBoard: function() { return this.board; },
-	setEnemyBoard: function(board) { this.enemyBoard = board; },
-	getEnemyBoard: function() { return this.enemyBoard; },
+GameEntry.prototype = {
 	getId: function() { return this.id; },
 	getStatus: function() { return this.status },
 	getEnemyId: function() { return this.enemyId },
