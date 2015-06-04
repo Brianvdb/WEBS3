@@ -29,6 +29,14 @@ h1, h2 {
 	border: 1px solid #ccc;
 }
 
+#view {
+    width: 100%;
+}
+
+#buttonpanel button {
+    display: inline-block;
+}
+
 /* ------------------------- classes ------------------------- */
 .location {
 	background-color: #ADD8E6;
@@ -38,6 +46,11 @@ h1, h2 {
 	-moz-transition:background 1s;
 	-o-transition:background 1s;
 	transition:background 1s
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hovergrid {

@@ -2,6 +2,9 @@
 
 function App(token) {
 	this.token = token;
+    this.boardView = new BoardView();
+    this.listView = new GameListView(this);
+
 }
 
 App.prototype = {
@@ -85,11 +88,12 @@ App.prototype = {
 	
 	onGameListReceived: function(gameList) {
 		// update views..
-		for(var i = 0; i < gameList.getGames().length; i++) {
+		/*for(var i = 0; i < gameList.getGames().length; i++) {
 			var gameEntry = gameList.getGames()[i];
 
 			this.requestGame(gameEntry.getId());
-		}
+		}*/
+        this.listView.onGameListReceived(gameList);
 	},
 	
 	onGameReceived: function(game) {
@@ -98,5 +102,38 @@ App.prototype = {
 	
 	onNewGameCreated: function(data) {
 		// update views, check what happened
-	}
+        this.listView.onGameCreated(data);
+	},
+
+    removeGames: function(data) {
+        var self = this;
+        var url = "http://zeeslagavans.herokuapp.com/users/me/games?token=" + this.token;
+
+        $.ajax({
+            url: url,
+            type: 'DELETE',
+            success: function(result) {
+                self.listView.onGamesRemoved();
+            }
+        });
+    },
+
+    switchView: function(view) {
+        var self = this;
+        switch(view) {
+            case "board":
+                $.get('assets/views/board.html', function(data) {
+                    $('#view').html(data);
+                    self.boardView.init();
+                });
+                break;
+            case "list":
+                $.get('assets/views/gamelist.html', function(data) {
+                    $('#view').html(data);
+                    self.listView.init();
+                });
+                break;
+
+        }
+    }
 }

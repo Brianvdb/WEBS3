@@ -3,7 +3,8 @@ var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImJjZi52YW5kZW5icm9la0BzdHVkZW
 $(function() {
 	var app = new App(token);
 
-	app.requestGameList();
+    app.switchView('list');
+
 	/*app.getGameList(function(gameList) {
 		var gameEntries = gameList.getGames();
 		for(var i = 0; i < gameEntries.length; i++) {
