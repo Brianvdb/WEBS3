@@ -38,12 +38,22 @@ GameListView.prototype = {
         this.app.requestGameList();
     },
 
+    onNavigateClick: function(event) {
+        var elem = $(event.delegateTarget);
+        var id = elem.data('id');
+        var state = elem.data('state');
+
+        if(state == 'setup') {
+
+        }
+    },
+
     onGameListReceived: function(gameList) {
         console.log('gamelist received');
 
         var table = $('#gamelist');
         table.empty();
-        table.append('<tr><th>Id</th><th>Status</th><th>Enemy Name</th></tr>');
+        table.append('<tr><th>Id</th><th>Status</th><th>Enemy Name</th><th></th></tr>');
 
         for(var i = 0; i < gameList.getGames().length; i++) {
             var row = $('<tr></tr>');
@@ -56,9 +66,12 @@ GameListView.prototype = {
                 row.append('<td>' + game.getId() + '</td>');
                 row.append('<td>' + game.getStatus() + '</td>');
                 row.append('<td>' + game.getEnemyName() + '</td>');
+                row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="setup">Go</button></td>');
                 table.append(row);
             }
         }
+
+        $('.navigate-game').click($.proxy(this.onNavigateClick, this));
 
         table.show();
     }

@@ -2,7 +2,7 @@
 
 function App(token) {
 	this.token = token;
-    this.boardView = new BoardView();
+    this.setupBoardView = new SetupBoardView();
     this.listView = new GameListView(this);
     this.currentView = undefined;
 
@@ -123,11 +123,11 @@ App.prototype = {
     switchView: function(view) {
         var self = this;
         switch(view) {
-            case "board":
-                $.get('assets/views/board.html', function(data) {
+            case "setupboard":
+                $.get('assets/views/setupboard.html', function(data) {
                     $('#view').html(data);
-                    self.currentView = self.boardView;
-                    self.boardView.init();
+                    self.currentView = self.setupBoardView;
+                    self.setupBoardView.init();
                 });
                 break;
             case "list":

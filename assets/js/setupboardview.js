@@ -1,11 +1,11 @@
 /**
  * Created by Gebruiker on 23-5-2015.
  */
-function BoardView() {
+function SetupBoardView() {
 
 }
 
-BoardView.prototype = {
+SetupBoardView.prototype = {
     init: function() {
         for(var j = 2; j <= 5; j++) {
             var offset = (j * 50);
