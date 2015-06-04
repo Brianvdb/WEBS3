@@ -4,6 +4,7 @@ function App(token) {
 	this.token = token;
     this.boardView = new BoardView();
     this.listView = new GameListView(this);
+    this.currentView = undefined;
 
 }
 
@@ -88,12 +89,9 @@ App.prototype = {
 	
 	onGameListReceived: function(gameList) {
 		// update views..
-		/*for(var i = 0; i < gameList.getGames().length; i++) {
-			var gameEntry = gameList.getGames()[i];
-
-			this.requestGame(gameEntry.getId());
-		}*/
-        this.listView.onGameListReceived(gameList);
+        if(this.currentView == this.listView) {
+            this.listView.onGameListReceived(gameList);
+        }
 	},
 	
 	onGameReceived: function(game) {
@@ -102,7 +100,9 @@ App.prototype = {
 	
 	onNewGameCreated: function(data) {
 		// update views, check what happened
-        this.listView.onGameCreated(data);
+        if(this.currentView == this.listView) {
+            this.listView.onGameCreated(data);
+        }
 	},
 
     removeGames: function(data) {
@@ -113,7 +113,9 @@ App.prototype = {
             url: url,
             type: 'DELETE',
             success: function(result) {
-                self.listView.onGamesRemoved();
+                if(self.currentView == self.listView) {
+                    self.listView.onGamesRemoved();
+                }
             }
         });
     },
@@ -124,12 +126,14 @@ App.prototype = {
             case "board":
                 $.get('assets/views/board.html', function(data) {
                     $('#view').html(data);
+                    self.currentView = self.boardView;
                     self.boardView.init();
                 });
                 break;
             case "list":
                 $.get('assets/views/gamelist.html', function(data) {
                     $('#view').html(data);
+                    self.currentView = self.listView;
                     self.listView.init();
                 });
                 break;
