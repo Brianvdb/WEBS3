@@ -15,8 +15,31 @@ h1, h2 {
 	text-align: center;
 }
 
+h3 {
+	margin: 0px;
+	padding: 0px;
+}
+
 button {
-	
+	background: #2196F3;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	border: 1px solid #2196F3;
+	color: #fff;
+	display: inline-block;
+  	padding: 6px 12px;
+  	margin-bottom: 0;
+  	font-size: 14px;
+	transition: all 0.1s ease-in-out;
+	width: 100%;
+	margin: 6px 0px;
+	font-weight: bold;
+}
+
+button:hover {
+	background: transparent;
+	border-color: #2196F3;
+	color: #2196F3;
 }
 
 /* ------------------------- ids ------------------------- */
@@ -36,6 +59,8 @@ button {
 
 #view {
     width: 100%;
+    position: absolute;
+    z-index: 9999;
 }
 
 #buttonpanel button {
@@ -147,6 +172,7 @@ body
   min-height:10em;
 	position:fixed;
 	overflow:hidden;
+	padding-top: 18%;
 }
 
 .wave
@@ -252,4 +278,9 @@ body
 {
 	from { transform: rotate(0deg)   translatey(-1.5em) rotate(0deg)    ; }
 	to   { transform: rotate(360deg) translatey(-1.5em) rotate(-360deg) ; }
+}
+
+#buttonpanel, #gamelist {
+	width: 500px;
+	background: rgba(0, 0, 0, 0.3);
 }
