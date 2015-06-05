@@ -9,6 +9,16 @@ GameListView.prototype = {
         this.app.requestGameList();
 
         this.bindListeners();
+        this.listen();
+    },
+
+    destruct: function() {
+        clearInterval(this.listener);
+    },
+
+    listen: function() {
+        var self = this;
+        this.listener = setInterval(function(){ self.app.requestGameList() }, 2000);
     },
 
     bindListeners: function() {
