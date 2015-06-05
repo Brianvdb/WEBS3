@@ -1,12 +1,15 @@
 /**
  * Created by Gebruiker on 23-5-2015.
  */
-function SetupBoardView() {
-
+function SetupBoardView(app) {
+    this.app = app;
 }
 
 SetupBoardView.prototype = {
-    init: function() {
+    init: function(gameId) {
+
+        this.gameId = gameId;
+
         for(var j = 2; j <= 5; j++) {
             var offset = (j * 50);
             var width = j * 48;

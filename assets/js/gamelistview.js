@@ -41,11 +41,18 @@ GameListView.prototype = {
     onNavigateClick: function(event) {
         var elem = $(event.delegateTarget);
         var id = elem.data('id');
-        var state = elem.data('state');
+        var self = this;
 
-        if(state == 'setup') {
-
-        }
+        // request status of game
+        this.app.requestGame(id, function(game) {
+            if(game) {
+                switch(game.getStatus()) {
+                    case "setup":
+                        self.app.switchView('setupboard', id);
+                        break;
+                }
+            }
+        });
     },
 
     onGameListReceived: function(gameList) {
