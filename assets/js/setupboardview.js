@@ -7,7 +7,7 @@ function SetupBoardView(app) {
 
 SetupBoardView.prototype = {
     init: function(gameId) {
-
+        
         this.gameId = gameId;
 
         for(var j = 2; j <= 5; j++) {
