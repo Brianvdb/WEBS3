@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 	<head>
-  		<meta charset="utf-8">
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
@@ -9,36 +9,46 @@
 		
 		<title>Battleship</title>
 		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/jquery-ui.css" rel="stylesheet">
-  	</head>
+		<link href="assets/css/jquery-ui.css" rel="stylesheet">
+	</head>
 	<body>
 
-		<div class="flip-container">
-			<div class="flipper">
-				<div class="front">
-					<img src="assets/images/logo.png" />
+		<div class="header">
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="front">
+						<img src="assets/images/logo.png" />
+					</div>
+					<div class="back">
+						<h2>Brian van den Broek (2072564)</h2>
+						<h2>Stan van Heumen (2073196)</h2>
+					</div>
 				</div>
-				<div class="back">
-					<h2>Brian van den Broek (2072564)</h2>
-					<h2>Stan van Heumen (2073196)</h2>
-				</div>
+			</div>
+
+			<div id="view">
 			</div>
 		</div>
 
-		<div id="view">
+			<div class="waves">
+				<div class="wave wave_1"></div>
+				<div class="wave wave_2"></div>
+				<div class="wave wave_3"></div>
+				<div class="wave wave_4"></div>
+				<div class="wave wave_5"></div>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="assets/js/jquery-ui.js"></script>
+		<script src="assets/js/jquery-ui.js"></script>
 		<script src="assets/js/app.js"></script>
-        <script src="assets/js/setupboardview.js"></script>
-        <script src="assets/js/gamelistview.js"></script>
+		<script src="assets/js/setupboardview.js"></script>
+		<script src="assets/js/gamelistview.js"></script>
 		<script src="assets/js/square.js"></script>
 		<script src="assets/js/board.js"></script>
-        <script src="assets/js/ship.js"></script>
+		<script src="assets/js/ship.js"></script>
 		<script src="assets/js/game-entry.js"></script>
 		<script src="assets/js/gamelist.js"></script>
-        <script src="assets/js/game.js"></script>
+		<script src="assets/js/game.js"></script>
 		<script src="assets/js/zeeslag.js"></script>
 	</body>
 </html>
