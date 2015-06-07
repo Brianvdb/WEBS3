@@ -20,8 +20,6 @@ App.prototype = {
 		var self = this;
 		$.get( url, function( data ) {
 			self.onGameListReceived(new Gamelist(data));
-		}).fail(function() {
-			// TODO: handle fail
 		});
 	},
 	
@@ -38,8 +36,6 @@ App.prototype = {
 			// TODO: handle data
 			console.log(data);
 			self.onNewGameCreated(data);
-		}).fail(function() {
-			// TODO: handle fail
 		});
 	},
 	
@@ -68,8 +64,6 @@ App.prototype = {
                 self.onGameReceived(game);
             }
 
-		}).fail(function() {
-			// TODO: handle fail
 		});
 	},
 	
@@ -83,8 +77,6 @@ App.prototype = {
 				ships[i] = new Ship(s._id, s.length, s.name);
 			}
 			self.onShipsReceived(ships);
-		}).fail(function() {
-			// TODO: handle fail
 		});
 	},
 
@@ -160,7 +152,6 @@ App.prototype = {
                     self.listView.init();
                 });
                 break;
-
         }
     }
 }
