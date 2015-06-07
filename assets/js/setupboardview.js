@@ -3,12 +3,11 @@
  */
 function SetupBoardView(app) {
     this.app = app;
-    this.board = new Board(10);
 }
 
 SetupBoardView.prototype = {
     init: function(gameId) {
-        
+        this.board = new Board(10);
         this.gameId = gameId;
 
         for(var i = 0; i < 100; i++) {
