@@ -1,16 +1,22 @@
 // Controller, interacts with the Zeeslag API
 
-function App(token) {
+function App(server, token) {
+    this.server = server;
 	this.token = token;
     this.setupBoardView = new SetupBoardView(this);
     this.listView = new GameListView(this);
     this.currentView = undefined;
+    this.socket = io.connect(server, { query: "token=" + token });
 
+    var self = this;
+    this.socket.on('update', function(gameId) {
+        self.onGameUpdate(gameId);
+    });
 }
 
 App.prototype = {
 	requestGameList: function() {
-		var url = "http://zeeslagavans.herokuapp.com/users/me/games?token=" + this.token;
+		var url = this.server + "users/me/games?token=" + this.token;
 		var self = this;
 		$.get( url, function( data ) {
 			self.onGameListReceived(new Gamelist(data));
@@ -22,9 +28,9 @@ App.prototype = {
 	requestNewGame: function(computer) {
         var url;
         if(computer) {
-            url = "http://zeeslagavans.herokuapp.com/games/AI?token=" + this.token;
+            url = this.server + "games/AI?token=" + this.token;
         } else {
-            url = "http://zeeslagavans.herokuapp.com/games?token=" + this.token;
+            url = this.server + "games?token=" + this.token;
         }
 
 		var self = this;
@@ -38,7 +44,7 @@ App.prototype = {
 	},
 	
 	requestGame: function(id, callback) {
-		var url = "http://zeeslagavans.herokuapp.com/games/" + id + " ?token=" + this.token;
+		var url = this.server + "games/" + id + " ?token=" + this.token;
 		var self = this;
 		$.get( url, function( data ) {
 			console.log(data);
@@ -68,7 +74,7 @@ App.prototype = {
 	},
 	
 	requestShips: function() {
-		var url = "http://zeeslagavans.herokuapp.com/ships?token=" + this.token;
+		var url = this.server + "ships?token=" + this.token;
 		var self = this;
 		$.get( url, function( data ) {
 			var ships = [];
@@ -118,9 +124,13 @@ App.prototype = {
         }
 	},
 
+    onGameUpdate: function(gameId) {
+        console.log('on game update: ' + gameId);
+    },
+
     removeGames: function(data) {
         var self = this;
-        var url = "http://zeeslagavans.herokuapp.com/users/me/games?token=" + this.token;
+        var url = this.server + "users/me/games?token=" + this.token;
 
         $.ajax({
             url: url,
