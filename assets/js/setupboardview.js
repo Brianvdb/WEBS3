@@ -37,6 +37,8 @@ SetupBoardView.prototype = {
     bindListeners: function() {
         var self = this;
         var offset = $('#view').offset().top;
+        var board = this.board;
+        var ships = this.ships;
 
         $('.box').draggable({
             cursorAt: { top: 24, left: 10 },
@@ -50,12 +52,12 @@ SetupBoardView.prototype = {
                         top: elem.attr('data-ship') * 50 + 'px',
                         left: '100px'
                     }).removeAttr('data-index');
+
+                    var ship = ships[$(this).attr('data-ship')];
+                    board.removeShip(ship);
                 }
             }
         });
-
-        var board = this.board;
-        var ships = this.ships;
 
         $('div', '#grid').each(function() {
             var $div = $(this);
