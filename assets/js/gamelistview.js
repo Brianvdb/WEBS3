@@ -23,11 +23,16 @@ GameListView.prototype = {
 
     bindListeners: function() {
         $('#newgame').click( $.proxy(this.onNewGameClick, this) );
+        $('#newgameai').click( $.proxy(this.onNewGameAIClick, this) );
         $('#removegames').click( $.proxy(this.onRemoveGamesClick, this) );
     },
 
     onNewGameClick: function(event) {
         this.app.requestNewGame();
+    },
+
+    onNewGameAIClick: function(event) {
+        this.app.requestNewGame(true);
     },
 
     onRemoveGamesClick: function(event) {

@@ -13,15 +13,20 @@ App.prototype = {
 		var url = "http://zeeslagavans.herokuapp.com/users/me/games?token=" + this.token;
 		var self = this;
 		$.get( url, function( data ) {
-			console.log(data);
 			self.onGameListReceived(new Gamelist(data));
 		}).fail(function() {
 			// TODO: handle fail
 		});
 	},
 	
-	requestNewGame: function() {
-		var url = "http://zeeslagavans.herokuapp.com/games?token=" + this.token;
+	requestNewGame: function(computer) {
+        var url;
+        if(computer) {
+            url = "http://zeeslagavans.herokuapp.com/games/AI?token=" + this.token;
+        } else {
+            url = "http://zeeslagavans.herokuapp.com/games?token=" + this.token;
+        }
+
 		var self = this;
 		$.get( url, function( data ) {
 			// TODO: handle data
@@ -89,6 +94,10 @@ App.prototype = {
 	onShipsReceived: function(ships) {
 		// update board view with ships
 		console.log("ships received");
+
+        if(this.currentView == this.setupBoardView) {
+            this.setupBoardView.onShipsReceived(ships);
+        }
 	},
 	
 	onGameListReceived: function(gameList) {

@@ -8,7 +8,8 @@ body {
 	-moz-animation: fadein 1s;
 	-webkit-animation: fadein 1s;
 	-o-animation: fadein 1s;
-	margin: 0px;
+	margin: 0;
+    background:#002040;
 }
 
 h1, h2 {
@@ -16,8 +17,8 @@ h1, h2 {
 }
 
 h3 {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 button {
@@ -28,11 +29,10 @@ button {
 	color: #fff;
 	display: inline-block;
   	padding: 6px 12px;
-  	margin-bottom: 0;
   	font-size: 14px;
 	transition: all 0.1s ease-in-out;
 	width: 100%;
-	margin: 6px 0px;
+	margin: 6px 0;
 	font-weight: bold;
 }
 
@@ -47,7 +47,12 @@ button:hover {
 	width: 500px;
 	height: 500px;
 	position: relative;
-	margin: 60px auto 0 auto;
+	margin: 10px auto 0 auto;
+}
+
+#sendboard, #goback {
+    width: 500px;
+    display: block;
 }
 
 #grid div {
@@ -79,7 +84,9 @@ button:hover {
 }
 
 .center {
-    margin: 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
 }
 
@@ -151,16 +158,11 @@ button:hover {
 	to 		{opacity:1;}
 }
 
-body
-{
-  background:#002040;
-}
-
 .header {
 	background-color: #153C65;
 	color: #fff;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 /* Waves */

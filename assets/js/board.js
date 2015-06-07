@@ -1,6 +1,5 @@
 function Board(size, squares) {
 	this.size = size;
-	this.ships = [];
 	
 	// if squares are given, set it. Otherwise make them.
 	if(typeof squares !== 'undefined') {
@@ -18,50 +17,49 @@ function Board(size, squares) {
 }
 
 Board.prototype = {
-	render: function() {
-		var grid = $('#grid');
-		for (var i = 0; i < this.size; i++) {
-			row = "<tr>";
-			for (var j = 0; j < this.size; j++) {
-				row += "<td class='location' data-x='" + i + "' data-y='" + j + "'></td>";
-			}
-			row += "</tr>";
-			grid.append(row);
-		}
-		
-		this.bindListeners();
-	},
-	
-	onClick: function(event) {
-		// fetch grid position
-		var x = $(event.target).data('x');
-		var y = $(event.target).data('y');
-		
-		// determine if this cell has already been shot
-		if(this.squares[x][y].hasBeenShot()) {
-			return;
-		}
-		
-		// show alert on screen
-		//alert( "X: " + x + ", Y: " + y );
-		console.log( "X: " + x + ", Y: " + y);
-		
-		// change backgroundColor
-		$(event.target).css('background-color', '#ffff00');
-		
-		// update shootPositions
-		this.squares[x][y].shoot();
-	},
-	
-	bindListeners: function() {
-		$('td').click( $.proxy(this.onClick, this) );
-	},
 
-	addShip: function(ship) {
+	addShip: function(ship, startX, startY, isHorizontal) {
 		// TODO: implement check whether given ship can be placed on the board
+        if(isHorizontal) {
+            for(var x = startX; x < startX + ship.getLength(); x++) {
+                console.log("taken: " + x + "," + startY + " : " + ship.getLength());
+                this.squares[x][startY].placeShip(ship);
+            }
+        } else {
+            for(var y = startY; y <= startY + ship.getLength(); y++) {
+                this.squares[startX][y].placeShip(ship);
+            }
+        }
 
-		this.ships.push(ship);
 		return true;
-	}
+	},
+
+    canPlace: function(ship, startX, startY, isHorizontal) {
+        if (isHorizontal) {
+            for (var x = startX; x < startX + ship.getLength(); x++) {
+                console.log("check taken: " + x + "," + startY + " : " + ship.getLength());
+                if (this.squares[x][startY].hasShip()) {
+                    return false;
+                }
+            }
+        } else {
+            for (var y = startY; y < startY + ship.getLength(); y++) {
+                if (this.squares[startX][y].hasShip()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    },
+
+    removeShip: function(ship) {
+        for(var i = 0; i < this.size; i++) {
+            for(var j = 0; j < this.size; j++) {
+                if(this.squares[i][j].getShip() == ship) {
+                    this.squares[i][j].removeShip();
+                }
+            }
+        }
+    }
 }
 
