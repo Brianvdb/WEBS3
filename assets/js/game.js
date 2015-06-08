@@ -7,39 +7,39 @@ function Game(id, status, yourTurn, enemyId, enemyName) {
 }
 
 Game.prototype = {
-	getId: function() {
-        return this.id;
-    },
+	getId: function () {
+		return this.id;
+	},
 
-	getStatus: function() {
-        return this.status;
-    },
+	getStatus: function () {
+		return this.status;
+	},
 
-	isYourTurn: function() {
-        return this.yourTurn;
-    },
+	isYourTurn: function () {
+		return this.yourTurn;
+	},
 
-	getEnemyId: function() {
-        return this.enemyId;
-    },
+	getEnemyId: function () {
+		return this.enemyId;
+	},
 
-	getEnemyName: function() {
-        return this.enemyName;
-    },
+	getEnemyName: function () {
+		return this.enemyName;
+	},
 
-    setMyBoard: function(board) {
-        this.myBoard = board;
-    },
+	setMyBoard: function (board) {
+		this.myBoard = board;
+	},
 
-    setEnemyBoard: function(board) {
-        this.enemyBoard = board;
-    },
+	setEnemyBoard: function (board) {
+		this.enemyBoard = board;
+	},
 
-	getMyBoard: function() {
-        return this.myBoard;
-    },
+	getMyBoard: function () {
+		return this.myBoard;
+	},
 
-	getEnemyBoard: function() {
-        return this.enemyBoard;
-    }
+	getEnemyBoard: function () {
+		return this.enemyBoard;
+	}
 }
