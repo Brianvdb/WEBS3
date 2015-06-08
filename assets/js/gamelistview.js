@@ -14,6 +14,7 @@ GameListView.prototype = {
 
     destruct: function() {
         clearInterval(this.listener);
+        $(window).off();
     },
 
     listen: function() {
@@ -65,6 +66,10 @@ GameListView.prototype = {
                     case "setup":
                         self.app.switchView('setupboard', id);
                         break;
+                    case "done":
+                    case "started":
+                        self.app.switchView('game', id);
+                        break;
                 }
             }
         });
@@ -84,11 +89,11 @@ GameListView.prototype = {
                 row.append('<td>' + game.getId() + '</td>');
                 row.append('<td>' + game.getStatus() + '</td>');
                 table.append(row);
-            } else if(game.getStatus() == 'setup') {
+            } else if(game.getStatus() == 'setup' || game.getStatus() == 'started' || game.getStatus() == 'done') {
                 row.append('<td>' + game.getId() + '</td>');
                 row.append('<td>' + game.getStatus() + '</td>');
                 row.append('<td>' + game.getEnemyName() + '</td>');
-                row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="setup">Go</button></td>');
+                row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">Go</button></td>');
                 table.append(row);
             }
         }

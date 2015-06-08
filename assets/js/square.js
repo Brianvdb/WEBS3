@@ -3,6 +3,7 @@ function Square(x, y) {
 	this.y = y;
 	this.shot = false;
     this.taken = false;
+    this.wasHit = false;
 }
 
 Square.prototype = {
@@ -29,11 +30,19 @@ Square.prototype = {
 
 	shoot: function() {
         this.shot = true;
-        return this.hasShip();
+        this.wasHit = this.hasShip();
     },
 
 	hasBeenShot: function() {
         return this.shot;
+    },
+
+    hit: function() {
+        this.wasHit = true;
+    },
+
+    isHit: function() {
+        return this.shot && this.wasHit
     },
 
     removeShip: function() {

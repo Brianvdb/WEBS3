@@ -31,6 +31,9 @@ Board.prototype = {
             }
         }
 
+        ship.setStartCell(startX, startY);
+        ship.setVertical(!isHorizontal);
+
 		return true;
 	},
 
@@ -60,6 +63,45 @@ Board.prototype = {
                 }
             }
         }
+        ship.reset();
+    },
+
+    getShips: function() {
+        var ships = [];
+        for(var i = 0; i < this.size; i++) {
+            for(var j = 0; j < this.size; j++) {
+                var square = this.squares[i][j];
+                if(square.hasShip() && ships.indexOf(square.getShip()) == -1) {
+                    ships.push(square.getShip());
+                }
+            }
+        }
+        return ships;
+    },
+
+    getShootSquares: function() {
+        var squares = [];
+        for(var i = 0; i < this.size; i++) {
+            for(var j = 0; j < this.size; j++) {
+                var square = this.squares[i][j];
+                if(square.hasBeenShot()) {
+                    squares.push(square);
+                }
+            }
+        }
+        return squares;
+    },
+
+    getSize: function() {
+        return this.size;
+    },
+
+    hit: function(x, y, hit) {
+        this.squares[x][y].shoot();
+        if(hit) {
+            this.squares[x][y].hit();
+        }
     }
+
 }
 

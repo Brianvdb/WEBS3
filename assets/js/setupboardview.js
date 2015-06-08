@@ -18,7 +18,7 @@ SetupBoardView.prototype = {
     },
 
     destruct: function() {
-
+        $(window).off();
     },
 
     onShipsReceived: function(ships) {
@@ -89,9 +89,27 @@ SetupBoardView.prototype = {
         });
 
         $('#goback').click($.proxy(this.onBackClick, this));
+        $('#sendboard').click($.proxy(this.onSendBoardClick, this));
 
         $(window).scroll(this.updatePositions);
         $(window).resize(this.updatePositions);
+    },
+
+    onSendBoardClick: function(event) {
+        if(!this.ships) {
+            alert("Ships are not loaded yet...");
+            return;
+        }
+
+        for(var i = 0; i < this.ships.length; i++) {
+            var ship = this.ships[i];
+            if(!ship.isPlaced()) {
+                alert("Place all ships on the board");
+                return;
+            }
+        }
+
+        this.app.postGameBoard(this.gameId, this.ships);
     },
 
     onBackClick: function(event) {
