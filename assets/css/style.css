@@ -114,6 +114,11 @@ button:hover {
 	transition:background 1s
 }
 
+.left-align {
+	padding-left: 10px;
+	text-align: left;
+}
+
 .hit {
     position: absolute;
     z-index: 9999;
