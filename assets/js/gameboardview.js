@@ -18,6 +18,18 @@ GameBoardView.prototype = {
 		}
 
 		this.bindListeners();
+		this.listen();
+	},
+	
+	listen: function () {
+		var self = this;
+		
+		this.listener = setInterval(function () {
+			self.app.requestGame(self.gameId, function (game) {
+				
+				self.onGameReceived(game)
+			});
+		}, 2000);
 	},
 
 	destruct: function () {
@@ -38,6 +50,7 @@ GameBoardView.prototype = {
 	},
 
 	onGameReceived: function (game) {
+		console.log('updating game...');
 		this.game = game;
 
 		var ships = game.getMyBoard().getShips();
