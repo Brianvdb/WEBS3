@@ -96,6 +96,7 @@ button:hover {
     width: 100%;
     position: absolute;
     z-index: 9999;
+    margin: 20px 0px;
 }
 
 #buttonpanel button {
