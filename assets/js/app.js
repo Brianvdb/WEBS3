@@ -209,6 +209,11 @@ App.prototype = {
 
 	onGameUpdate: function (gameId) {
 		console.log('on game update: ' + gameId);
+		if(gameId) {
+			if(this.currentView == this.gameView && this.gameView.gameId && this.gameView.gameId == gameId) {
+				this.gameView.updateGame();
+			}
+		}
 	},
 
 	removeGames: function (data) {

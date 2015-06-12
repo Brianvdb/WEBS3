@@ -7,10 +7,7 @@ GameBoardView.prototype = {
 		this.gameId = gameId;
 		this.myTurn = false;
 
-		var self = this;
-		this.app.requestGame(gameId, function (game) {
-			self.onGameReceived(game)
-		});
+		this.updateGame();
 
 		for (var i = 0; i < 100; i++) {
 			$('#grid1').append('<div data-targetIndex="' + i + '"><div></div></div>');
@@ -18,7 +15,7 @@ GameBoardView.prototype = {
 		}
 
 		this.bindListeners();
-		this.listen();
+		//this.listen();
 	},
 	
 	listen: function () {
@@ -37,6 +34,13 @@ GameBoardView.prototype = {
 		this.ships = undefined;
 		clearInterval(this.listener);
 		$(window).off();
+	},
+	
+	updateGame: function() {
+		var self = this;
+		this.app.requestGame(self.gameId, function (game) {
+			self.onGameReceived(game)
+		});
 	},
 
 	bindListeners: function () {
