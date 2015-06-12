@@ -95,9 +95,11 @@ Board.prototype = {
 	},
 
 	hit: function (x, y, hit) {
-		this.squares[x][y].shoot();
-		if (hit) {
-			this.squares[x][y].hit();
+		if(this.squares[x][y]) {
+			this.squares[x][y].shoot();
+			if (hit) {
+				this.squares[x][y].hit();
+			}
 		}
 	}
 
