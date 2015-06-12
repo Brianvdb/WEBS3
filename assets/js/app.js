@@ -20,6 +20,7 @@ App.prototype = {
 		var url = this.server + "users/me/games?token=" + this.token;
 		var self = this;
 		$.get(url, function (data) {
+			console.log(data);
 			self.onGameListReceived(new Gamelist(data));
 		});
 	},

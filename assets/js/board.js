@@ -22,7 +22,6 @@ Board.prototype = {
 		// TODO: implement check whether given ship can be placed on the board
 		if (isHorizontal) {
 			for (var x = startX; x < startX + ship.getLength(); x++) {
-				console.log("taken: " + x + "," + startY + " : " + ship.getLength());
 				this.squares[x][startY].placeShip(ship);
 			}
 		} else {
@@ -40,7 +39,6 @@ Board.prototype = {
 	canPlace: function (ship, startX, startY, isHorizontal) {
 		if (isHorizontal) {
 			for (var x = startX; x < startX + ship.getLength(); x++) {
-				console.log("check taken: " + x + "," + startY + " : " + ship.getLength());
 				if (this.squares[x][startY].hasShip()) {
 					return false;
 				}

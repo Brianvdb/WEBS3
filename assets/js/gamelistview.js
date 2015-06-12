@@ -78,7 +78,7 @@ GameListView.prototype = {
 	},
 
 	onGameListReceived: function (gameList) {
-		console.log('gamelist received');
+		//console.log(gameList.getGames());
 
 		var table = $('#gamelist');
 		table.empty();

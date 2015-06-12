@@ -35,6 +35,7 @@ GameBoardView.prototype = {
 	destruct: function () {
 		this.game = undefined;
 		this.ships = undefined;
+		clearInterval(this.listener);
 		$(window).off();
 	},
 
@@ -50,7 +51,11 @@ GameBoardView.prototype = {
 	},
 
 	onGameReceived: function (game) {
-		console.log('updating game...');
+		if(this.app.currentView != this) {
+			console.log('RETURN!');
+			return;
+		}
+		
 		this.game = game;
 
 		var ships = game.getMyBoard().getShips();
