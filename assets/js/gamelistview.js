@@ -85,43 +85,39 @@ GameListView.prototype = {
 
 		var allGames = gameList.getGames();
 
-		if (gameList.getStartedGames().length != 0) table.append('<tr><th colspan="2">Started Games</th></tr>');
+		if (gameList.getStartedGames().length != 0) table.append('<tr><th class="center"><h4>Started Games</h4></th></tr>');
 		for (var a = 0; a < gameList.getStartedGames().length; a++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getStartedGames();
 			var game = games[a];
-			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + game.getEnemyName() + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
-		if (gameList.getSetupGames().length != 0) table.append('<tr><th colspan="2">Setup Games</th></tr>');
+		if (gameList.getSetupGames().length != 0) table.append('<tr><th class="center"><h4>Setup Games</h4></th></tr>');
 		for (var b = 0; b < gameList.getSetupGames().length; b++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getSetupGames();
 			var game = games[b];
-			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + game.getEnemyName() + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
-		if (gameList.getQueueGames().length != 0) table.append('<tr><th colspan="2">Que Games</th></tr>');
+		if (gameList.getQueueGames().length != 0) table.append('<tr><th class="center"><h4>Que Games</h4></th></tr>');
 		for (var c = 0; c < gameList.getQueueGames().length; c++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getQueueGames();
 			var game = games[c];
-			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + game.getEnemyName() + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
-		if (gameList.getDoneGames().length != 0) table.append('<tr><th colspan="2">Done Games</th></tr>');
+		if (gameList.getDoneGames().length != 0) table.append('<tr><th class="center"><h4>Done Games</h4></th></tr>');
 		for (var d = 0; d < gameList.getDoneGames().length; d++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getDoneGames();
 			var game = games[d];
-			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + game.getEnemyName() + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
