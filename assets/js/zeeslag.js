@@ -1,5 +1,5 @@
 var server = "https://zeeslagavans.herokuapp.com/";
-var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImNqZ2hldW1lQGF2YW5zLm5sIg.DNq6H0fKb5NofVyq3kQPdWZLEiPdwFLSmCw0EXDZ_CE";
+var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ImJjZi52YW5kZW5icm9la0BzdHVkZW50LmF2YW5zLm5sIg.iLaYq3RoRTzZ21RMG0L9RPcOYF2CZBp3pWcKR6hJKek";
 
 $(function () {
 	var app = new App(server, token);
