@@ -91,7 +91,7 @@ GameListView.prototype = {
 			var games = gameList.getStartedGames();
 			var game = games[a];
 			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">Go</button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
@@ -101,7 +101,7 @@ GameListView.prototype = {
 			var games = gameList.getSetupGames();
 			var game = games[b];
 			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">Go</button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
@@ -111,7 +111,7 @@ GameListView.prototype = {
 			var games = gameList.getQueueGames();
 			var game = games[c];
 			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">Go</button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
@@ -121,7 +121,7 @@ GameListView.prototype = {
 			var games = gameList.getDoneGames();
 			var game = games[d];
 			row.append('<td class="left-align">' + game.getEnemyName() + '</td>');
-			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">Go</button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
