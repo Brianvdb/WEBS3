@@ -1,9 +1,32 @@
 
 <div id="buttonpanel" class="center">
 	<h3>Games</h3>
-    <button id="newgame">New Game vs Player</button>
-    <button id="newgameai">New Game vs Computer</button>
-    <button id="removegames">Delete Games</button>
+	<div class="row no-gutter">
+		<div class="col-md-4">
+			<button id="newgame">
+				<div class="row">
+					<div class="col-md-3"><span class="glyphicon glyphicon-user vcenter" aria-hidden="true"></span></div>
+					<div class="col-md-9">New Game vs Player</div>
+				</div>
+			</button>
+		</div>
+		<div class="col-md-4">
+			<button id="newgameai">
+				<div class="row">
+					<div class="col-md-3"><span class="glyphicon glyphicon-cog vcenter" aria-hidden="true"></span></div>
+					<div class="col-md-9">New Game vs Computer</div>
+				</div>
+			</button>
+		</div>
+		<div class="col-md-4">
+			<button id="removegames">
+				<div class="row">
+					<div class="col-md-3"><span class="glyphicon glyphicon-trash vcenter" aria-hidden="true"></span></div>
+					<div class="col-md-9">Delete All Of Your Games</div>
+				</div>
+			</button>
+		</div>
+	</div>
 </div>
 <table id="gamelist" class="center">
 
