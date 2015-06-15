@@ -13,6 +13,8 @@ function App(server, token) {
 	this.socket.on('update', function (gameId) {
 		self.onGameUpdate(gameId);
 	});
+
+	setLanguage(this.checkLanguage());
 }
 
 App.prototype = {
@@ -259,5 +261,31 @@ App.prototype = {
 				});
 				break;
 		}
+	},
+
+	getCookie: function(name) {
+		var dc = document.cookie;
+		var prefix = name + "=";
+		var begin = dc.indexOf("; " + prefix);
+		if (begin == -1) {
+			begin = dc.indexOf(prefix);
+			if (begin != 0) return null;
+		}
+		else
+		{
+			begin += 2;
+			var end = document.cookie.indexOf(";", begin);
+			if (end == -1) {
+			end = dc.length;
+			}
+		}
+		return unescape(dc.substring(begin + prefix.length, end));
+	},
+
+	checkLanguage: function() {
+		if (this.getCookie('language') == null) {
+			setLanguageCookie('english');
+		}
+		return this.getCookie('language');
 	}
 }

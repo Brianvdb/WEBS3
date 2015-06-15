@@ -9,12 +9,15 @@ SetupBoardView.prototype = {
 	init: function (gameId) {
 		this.board = new Board(10);
 		this.gameId = gameId;
+		this.space = false;
 
 		for (var i = 0; i < 100; i++) {
 			$('#grid').append('<div data-targetIndex="' + i + '"></div>');
 		}
 
 		this.app.requestShips();
+
+		translate();
 	},
 
 	destruct: function () {
@@ -55,6 +58,9 @@ SetupBoardView.prototype = {
 					var ship = ships[$(this).attr('data-ship')];
 					board.removeShip(ship);
 				}
+			},
+			drag: function(event, ui) {
+				// Drag | rotate
 			}
 		});
 

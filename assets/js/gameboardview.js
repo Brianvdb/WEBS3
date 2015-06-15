@@ -16,6 +16,7 @@ GameBoardView.prototype = {
 
 		this.bindListeners();
 		//this.listen();
+		translate();
 	},
 	
 	listen: function () {
@@ -68,10 +69,10 @@ GameBoardView.prototype = {
 
 		if (game.isYourTurn()) {
 			this.myTurn = true;
-			$('#turn').text("Your turn");
+			$('#turn').text(getWord('your turn'));
 		} else {
 			this.myTurn = false;
-			$('#turn').text("Enemy's turn");
+			$('#turn').text(getWord('enemy turn'));
 		}
 
 		if (!this.ships) {
@@ -86,12 +87,12 @@ GameBoardView.prototype = {
 
 				var bgImg = "url(assets/images/ship" + ship.getLength() + ".png)";
 
-				var width = 40;
-				var height = 40;
+				var width = 38;
+				var height = 38;
 				if (ship.isVertical()) {
-					height = 40 * ship.getLength();
+					height = 38 * ship.getLength();
 				} else {
-					width = 40 * ship.getLength();
+					width = 38 * ship.getLength();
 				}
 
 				shipElem.

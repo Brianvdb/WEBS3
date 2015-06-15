@@ -1,23 +1,22 @@
 <h4 class="center" id="turn">Loading...</h4>
 
-<div id="gamewrapper">
-    <div class="gridwrapper">
-        <p>Your board</p>
-        <div id="grid1">
-
-        </div>
-    </div>
-
-    <div class="offset-20"></div>
-
-    <div class="gridwrapper">
-        <p>Enemy board</p>
-        <div id="grid2">
-
-        </div>
-    </div>
+<div id="gamewrapper" class="row">
+	<div class="col-md-offset-1 col-md-5">
+		<p data-language="your board"></p>
+		<div id="grid1"></div>
+	</div>
+	<div class="col-md-5">
+		<p data-language="enemy board"></p>
+		<div id="grid2"></div>
+	</div>
 </div>
 
-<div id="buttonpanel" class="center margin-top">
-    <button id="goback">Go Back</button>
+<div class="container margin-top">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<button id="goback" class="full-width" data-language="go back"></button>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
 </div>
