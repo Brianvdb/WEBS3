@@ -190,6 +190,10 @@ button:disabled, button:disabled:hover {
 	z-index: 9999;
 	opacity: 0.8;
 	background-color: #4CAF50;
+	animation: fadeinhit 0.5s;
+	-moz-animation: fadeinhit 0.5s;
+	-webkit-animation: fadeinhit 0.5s;
+	-o-animation: fadeinhit 0.5s;
 }
 
 .hit-hover:hover {
@@ -202,13 +206,10 @@ button:disabled, button:disabled:hover {
 	z-index: 9999;
 	opacity: 0.5;
 	background-color: #F44336;
-}
-
-.gridwrapper {
-}
-
-.gridwrapper p {
-	margin-bottom: 10px;
+	animation: fadeinhit 0.5s;
+	-moz-animation: fadeinhit 0.5s;
+	-webkit-animation: fadeinhit 0.5s;
+	-o-animation: fadeinhit 0.5s;
 }
 
 .offset-20 {
@@ -298,6 +299,24 @@ button:disabled, button:disabled:hover {
 	from	{opacity:0;}
 	to 		{opacity:1;}
 }
+
+@keyframes fadeinhit {
+	from	{opacity:0;}
+	to 		{opacity:0.8;}
+}
+@-moz-keyframes fadeinhit {
+	from	{opacity:0;}
+	to 		{opacity:0.8;}
+}
+@-webkit-keyframes fadeinhit {
+	from	{opacity:0;}
+	to 		{opacity:0.8;}
+}
+@-o-keyframes fadeinhit {
+	from	{opacity:0;}
+	to 		{opacity:0.8;}
+}
+
 
 .header {
 	background-color: #BBDEFB;
@@ -442,6 +461,10 @@ button:disabled, button:disabled:hover {
 
 #gamelist, #createdpanel {
 	margin-top: 30px;
+}
+
+#dutch:hover, #english:hover {
+	cursor: pointer;
 }
 
 .rotated {
