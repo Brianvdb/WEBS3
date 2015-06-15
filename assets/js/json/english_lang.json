@@ -1,0 +1,19 @@
+{
+	"games" : "Games",
+	"new game player" : "New game vs player",
+	"new game computer" : "New game vs computer",
+	"delete games" : "Delete all your games",
+	"started games" : "Started games",
+	"setup games" : "Setup games",
+	"que games" : "Que games",
+	"done games" : "Done games",
+	"creators" : "Created by Brian van den Broek and Stan van Heumen",
+	"undefined" : "Undefined",
+	"drag ships" : "Drag the ships on the board",
+	"send board" : "Send board",
+	"go back" : "Go back",
+	"your turn" : "Your turn",
+	"enemy turn" : "Enemy turn",
+	"your board" : "Your board",
+	"enemy board" : "Enemies board"
+}

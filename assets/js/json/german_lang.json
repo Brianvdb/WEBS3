@@ -1,0 +1,19 @@
+{
+	"games" : "Spiele",
+	"new game player" : "Neues spiel vs spieler",
+	"new game computer" : "Neues spiel vs computer",
+	"delete games" : "Löschen alle Ihre Spiele",
+	"started games" : "Gestartete spiele",
+	"setup games" : "Setup-spiele",
+	"que games" : "Schlange spiele",
+	"done games" : "getan spiele",
+	"creators" : "Erstellt von Brian van den Broek und Stan van Heumen",
+	"undefined" : "Nicht definiert",
+	"drag ships" : "Ziehen Sie die schiffe auf dem brett",
+	"send board" : "Senden bord",
+	"go back" : "Geh zurück",
+	"your turn" : "Dein zug",
+	"enemy turn" : "Feind wiederum",
+	"your board" : "Ihr bord",
+	"enemy board" : "Feinde bord"
+}

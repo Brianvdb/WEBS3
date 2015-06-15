@@ -12,7 +12,7 @@ GameListView.prototype = {
 		this.bindListeners();
 		this.listen();
 
-		translate();
+		this.app.languages.translate();
 	},
 
 	destruct: function () {
@@ -31,8 +31,9 @@ GameListView.prototype = {
 		$('#newgame').click($.proxy(this.onNewGameClick, this));
 		$('#newgameai').click($.proxy(this.onNewGameAIClick, this));
 		$('#removegames').click($.proxy(this.onRemoveGamesClick, this));
-		$("#dutch").click(function() {setLanguageCookie('dutch'); location.reload();});
-		$("#english").click(function() {setLanguageCookie('english'); location.reload();});
+		$("#dutch").click($.proxy(this.onDutchLanguageClick, this));
+		$("#english").click($.proxy(this.onEnglishLanguageClick, this));
+		$("#german").click($.proxy(this.onGermanLanguageClick, this));
 	},
 
 	onNewGameClick: function (event) {
@@ -45,6 +46,21 @@ GameListView.prototype = {
 
 	onRemoveGamesClick: function (event) {
 		this.app.removeGames();
+	},
+
+	onDutchLanguageClick: function (event) {
+		this.app.languages.setLanguageCookie('dutch'); 
+		location.reload();
+	},
+
+	onEnglishLanguageClick: function (event) {
+		this.app.languages.setLanguageCookie('english'); 
+		location.reload();
+	},
+
+	onGermanLanguageClick: function (event) {
+		this.app.languages.setLanguageCookie('german'); 
+		location.reload();
 	},
 
 	onGamesRemoved: function () {
@@ -90,7 +106,7 @@ GameListView.prototype = {
 
 		var allGames = gameList.getGames();
 
-		if (gameList.getStartedGames().length != 0) table.append('<tr><th class="center"><h4>' + getWord('started games') + '</h4></th></tr>');
+		if (gameList.getStartedGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('started games') + '</h4></th></tr>');
 		for (var a = 0; a < gameList.getStartedGames().length; a++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getStartedGames();
@@ -99,7 +115,7 @@ GameListView.prototype = {
 			table.append(row);
 		}
 
-		if (gameList.getSetupGames().length != 0) table.append('<tr><th class="center"><h4>' + getWord('setup games') + '</h4></th></tr>');
+		if (gameList.getSetupGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('setup games') + '</h4></th></tr>');
 		for (var b = 0; b < gameList.getSetupGames().length; b++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getSetupGames();
@@ -108,16 +124,16 @@ GameListView.prototype = {
 			table.append(row);
 		}
 
-		if (gameList.getQueueGames().length != 0) table.append('<tr><th class="center"><h4>' + getWord('que games') + '</h4></th></tr>');
+		if (gameList.getQueueGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('que games') + '</h4></th></tr>');
 		for (var c = 0; c < gameList.getQueueGames().length; c++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getQueueGames();
 			var game = games[c];
-			row.append('<td><button disabled class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + getWord('undefined') + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button disabled class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + this.app.languages.getWord('undefined') + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
-		if (gameList.getDoneGames().length != 0) table.append('<tr><th class="center"><h4>' + getWord('done games') + '</h4></th></tr>');
+		if (gameList.getDoneGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('done games') + '</h4></th></tr>');
 		for (var d = 0; d < gameList.getDoneGames().length; d++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getDoneGames();

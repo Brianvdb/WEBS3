@@ -429,7 +429,7 @@ button:disabled, button:disabled:hover {
 	height: 30px;
 }
 
-#english, #dutch {
+#english, #dutch, #german {
 	display: inline-block;
 }
 
@@ -463,7 +463,7 @@ button:disabled, button:disabled:hover {
 	margin-top: 30px;
 }
 
-#dutch:hover, #english:hover {
+#dutch:hover, #english:hover, #german:hover {
 	cursor: pointer;
 }
 

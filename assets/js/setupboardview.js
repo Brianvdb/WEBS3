@@ -17,7 +17,7 @@ SetupBoardView.prototype = {
 
 		this.app.requestShips();
 
-		translate();
+		this.app.languages.translate();
 	},
 
 	destruct: function () {

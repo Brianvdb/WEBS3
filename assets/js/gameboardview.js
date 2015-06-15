@@ -16,7 +16,7 @@ GameBoardView.prototype = {
 
 		this.bindListeners();
 		//this.listen();
-		translate();
+		this.app.languages.translate();
 	},
 	
 	listen: function () {
@@ -69,10 +69,10 @@ GameBoardView.prototype = {
 
 		if (game.isYourTurn()) {
 			this.myTurn = true;
-			$('#turn').text(getWord('your turn'));
+			$('#turn').text(this.app.languages.getWord('your turn'));
 		} else {
 			this.myTurn = false;
-			$('#turn').text(getWord('enemy turn'));
+			$('#turn').text(this.app.languages.getWord('enemy turn'));
 		}
 
 		if (!this.ships) {

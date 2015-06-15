@@ -1,0 +1,19 @@
+{
+	"games" : "Spellen",
+	"new game player" : "Nieuw spel vs speler",
+	"new game computer" : "Nieuw spel vs computer",
+	"delete games" : "Verwijder alle spellen",
+	"started games" : "Spellen die gestart zijn",
+	"setup games" : "Spellen die ingesteld moeten worden",
+	"que games" : "Spellen in de wachtrij",
+	"done games" : "Spellen die klaar zijn",
+	"creators" : "Gemaakt door Brian van den Broek en Stan van Heumen",
+	"undefined" : "Onbekend",
+	"drag ships" : "Plaats de schepen op het bord",
+	"send board" : "Stuur bord",
+	"go back" : "Ga terug",
+	"your turn" : "Jouw beurt",
+	"enemy turn" : "Tegenstanders beurt",
+	"your board" : "Jouw bord",
+	"enemy board" : "Tegenstanders bord"
+}
