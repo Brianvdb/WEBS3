@@ -13,6 +13,9 @@ GameListView.prototype = {
 		this.listen();
 
 		this.app.languages.translate();
+		$(document).ready(function(){
+		    $('[data-toggle="tooltip"]').tooltip(); 
+		});
 	},
 
 	destruct: function () {
