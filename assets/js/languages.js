@@ -12,7 +12,7 @@ Languages.prototype = {
 	importLanguage: function() {
 		var result = undefined;
 		if (this.getLanguageCookie() == null) {
-			setLanguageCookie('english');
+			this.setLanguageCookie('english');
 		}
 		$.ajax({
 		    type: 'GET',
