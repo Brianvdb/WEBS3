@@ -1,5 +1,15 @@
 function GameListView(app) {
 	this.app = app;
+	var quotes = this.app.languages.getWord('quotes');
+	$('[data-toggle="tooltip"]').tooltip();
+	window.setInterval(function() {
+		$('.flip-container').toggleClass('hover');
+		if ($('#notification[style*="display:none"]')) {
+			var random = Math.floor(Math.random() * quotes.length);
+			$('#message').text(quotes[random]);
+			$('#notification').slideToggle(500).delay(3500).slideToggle(500);
+		}
+	}, 15000);
 }
 
 GameListView.prototype = {
@@ -13,9 +23,6 @@ GameListView.prototype = {
 		this.listen();
 
 		this.app.languages.translate();
-		$(document).ready(function(){
-		    $('[data-toggle="tooltip"]').tooltip(); 
-		});
 	},
 
 	destruct: function () {

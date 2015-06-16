@@ -3,12 +3,12 @@
 function App(server, token) {
 	this.server = server;
 	this.token = token;
+	this.languages = new Languages();
 	this.setupBoardView = new SetupBoardView(this);
 	this.listView = new GameListView(this);
 	this.gameView = new GameBoardView(this);
 	this.currentView = undefined;
 	this.socket = io.connect(server, {query: "token=" + token});
-	this.languages = new Languages();
 
 	var self = this;
 	this.socket.on('update', function (gameId) {

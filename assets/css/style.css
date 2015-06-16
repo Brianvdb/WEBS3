@@ -226,6 +226,7 @@ button:disabled, button:disabled:hover {
 
 .hovergrid {
 	background-color: black;
+	opacity: 0.5;
 }
 
 .margin-top {
@@ -273,6 +274,22 @@ button:disabled, button:disabled:hover {
 	left: 0;
 }
 
+#notification {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: #B71C1C;
+	opacity: 0.8;
+	display: none;
+}
+
+#message {
+	width: 100%;
+	text-align: center;
+	padding: 30px 0px;
+	font-size: 2em;
+}
+
 .front {
 	z-index: 2;
 	transform: rotateY(0deg);
@@ -280,6 +297,9 @@ button:disabled, button:disabled:hover {
 
 .back {
 	transform: rotateY(180deg);
+	font-size: 2em;
+	font-weight: bold;
+	margin-top: 10px;
 }
 
 /* ------------------------- keyframes ------------------------- */

@@ -15,5 +15,14 @@
 	"your turn" : "Jouw beurt",
 	"enemy turn" : "Tegenstanders beurt",
 	"your board" : "Jouw bord",
-	"enemy board" : "Tegenstanders bord"
+	"enemy board" : "Tegenstanders bord",
+	"quotes" : [
+		"Speel nu!",
+		"Tip: Plaats de schepen in verschillende rotaties om de tegenstander te verwarren.",
+		"Tip: Zet jouw boten niet te dicht bij elkaar.",
+		"Je kan een spel starten tegen een computer of een echte speler!",
+		"Je kunt de taal veranderen in het hoofdmenu.",
+		"Vet cool!",
+		"11 / 10 - WEBS3 docenten"
+	]
 }

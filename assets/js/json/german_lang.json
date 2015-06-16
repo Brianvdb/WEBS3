@@ -15,5 +15,14 @@
 	"your turn" : "Dein zug",
 	"enemy turn" : "Feind wiederum",
 	"your board" : "Ihr bord",
-	"enemy board" : "Feinde bord"
+	"enemy board" : "Feinde bord",
+	"quotes" : [
+		"Jetzt spielen!",
+		"Tip: Legen Sie die schiffe in verschiedenen drehungen, um den feind zu verwirren.",
+		"Tip: Legen Sie ihre Boote sind nicht zu nahe beieinander.",
+		"Sie können ein spiel gegen einen computer oder mit einem vorhandenen spieler zu starten!",
+		"Sie können die sprache im hauptmenü ändern.",
+		"Sehr cool!",
+		"11 / 10 - WEBS3 lehrerinnen"
+	]
 }

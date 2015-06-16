@@ -15,5 +15,14 @@
 	"your turn" : "Your turn",
 	"enemy turn" : "Enemy turn",
 	"your board" : "Your board",
-	"enemy board" : "Enemies board"
+	"enemy board" : "Enemies board",
+	"quotes" : [
+		"Play now!",
+		"Tip: Place the ships in different rotations to confuse the enemy.",
+		"Tip: Don't put your boats to close near eachother.",
+		"You can start a game versus a computer or an actual player!",
+		"You can change the language in the main menu.",
+		"Freaking awesome!",
+		"11 / 10 - WEBS3 teachers"
+	]
 }
