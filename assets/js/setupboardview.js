@@ -9,7 +9,6 @@ SetupBoardView.prototype = {
 	init: function (gameId) {
 		this.board = new Board(10);
 		this.gameId = gameId;
-		this.space = false;
 
 		for (var i = 0; i < 100; i++) {
 			$('#grid').append('<div data-targetIndex="' + i + '"></div>');
@@ -60,7 +59,12 @@ SetupBoardView.prototype = {
 				}
 			},
 			drag: function(event, ui) {
-				// Drag | rotate
+				window.onkeydown = function(e) {
+					if(e.keyCode == 32 && e.target == document.body) {
+						e.preventDefault();
+						$(event.target).toggleClass('rotated');
+					}
+				};
 			}
 		});
 
