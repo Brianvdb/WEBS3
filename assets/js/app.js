@@ -165,9 +165,11 @@ App.prototype = {
 	onShootPosted: function (game, state) {
 		switch (state) {
 			case "SPLASH":
+				document.querySelector('#splash').play();
 				alert("SPLASH!!!");
 				break;
 			case "BOOM":
+				document.querySelector('#explosion').play();
 				alert("You hit a ship!");
 				break;
 			default:

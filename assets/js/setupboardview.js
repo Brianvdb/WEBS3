@@ -54,6 +54,8 @@ SetupBoardView.prototype = {
 						left: '100px'
 					}).removeAttr('data-index');
 
+					elem.removeClass('rotated');
+
 					var ship = ships[$(this).attr('data-ship')];
 					board.removeShip(ship);
 				}
@@ -75,24 +77,24 @@ SetupBoardView.prototype = {
 				hoverClass: "hovergrid",
 				drop: function (event, ui) {
 					self.dropEvent = event;
-					if (self.checkCollision(event)) {
-						var x = $div.attr('data-targetIndex') % 10;
-						var y = Math.floor($div.attr('data-targetIndex') / 10);
-						var ship = ships[ui.draggable.attr('data-ship')];
-						board.removeShip(ship);
-						//alert('x: ' + x + ", y: " + y);
-						if (board.canPlace(ship, x, y, true)) {
-							board.addShip(ship, x, y, true);
-							ui.draggable.
-								css({
-									top: $div.offset().top - offset,
-									left: $div.offset().left
-								}).attr('data-index', $div.attr('data-targetIndex'))
-								.attr('data-top', $div.offset().top - offset)
-								.removeAttr('dragging');
-						} else {
-							alert("Kan hier geen boot plaatsen");
-						}
+					var x = $div.attr('data-targetIndex') % 10;
+					var y = Math.floor($div.attr('data-targetIndex') / 10);
+					var ship = ships[ui.draggable.attr('data-ship')];
+					board.removeShip(ship);
+					if (ui.draggable.hasClass('rotated')) {
+						ship.setVertical(true);
+					}
+					if (board.canPlace(ship, x, y, !ship.isVertical())) {
+						board.addShip(ship, x, y, !ship.isVertical());
+						ui.draggable.
+							css({
+								top: $div.offset().top - offset,
+								left: $div.offset().left
+							}).attr('data-index', $div.attr('data-targetIndex'))
+							.attr('data-top', $div.offset().top - offset)
+							.removeAttr('dragging');
+					} else {
+						// Do nothing..
 					}
 				}
 			});
@@ -113,6 +115,11 @@ SetupBoardView.prototype = {
 
 		for (var i = 0; i < this.ships.length; i++) {
 			var ship = this.ships[i];
+			if ($('[data-ship=' + ship.getId() + ']').hasClass('rotated')) {
+				ship.setVertical(true);
+			} else {
+				ship.setVertical(false);
+			}
 			if (!ship.isPlaced()) {
 				alert("Place all ships on the board");
 				return;
@@ -130,11 +137,11 @@ SetupBoardView.prototype = {
 		var targetSpot = event.target.getAttribute("data-targetIndex");
 		var lastPos = 10 - event.toElement.getAttribute('data-length');
 		var verticalPos = parseInt(targetSpot.substr(targetSpot.length - 1));
-
+/*
 		if (verticalPos > lastPos) {
 			return false;
 		}
-
+*/
 		return true;
 	},
 

@@ -10,6 +10,7 @@
 	"creators" : "Created by Brian van den Broek and Stan van Heumen",
 	"undefined" : "Undefined",
 	"drag ships" : "Drag the ships on the board",
+	"rotate ships": "Press space to rotate the ships",
 	"send board" : "Send board",
 	"go back" : "Go back",
 	"your turn" : "Your turn",

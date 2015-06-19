@@ -80,6 +80,9 @@ GameBoardView.prototype = {
 			for (var i = 0; i < ships.length; i++) {
 				var ship = ships[i];
 				var shipElem = $('<div class="box" data-ship="' + i + '" data-length="' + ship.getLength() + '"></div>');
+				if (ship.isVertical()) {
+					shipElem.addClass('rotated');
+				}
 				view.append(shipElem);
 				// 2D index to 1D index
 				var targetIndex = ship.getY() * 10 + ship.getX();
@@ -90,7 +93,7 @@ GameBoardView.prototype = {
 				var width = 38;
 				var height = 38;
 				if (ship.isVertical()) {
-					height = 38 * ship.getLength();
+					width = 38 * ship.getLength();
 				} else {
 					width = 38 * ship.getLength();
 				}
@@ -104,7 +107,6 @@ GameBoardView.prototype = {
 						"background-image": bgImg,
 						"background-size": 'cover'
 					}).attr('data-index', targetIndex);
-
 			}
 		}
 

@@ -25,7 +25,7 @@ Board.prototype = {
 				this.squares[x][startY].placeShip(ship);
 			}
 		} else {
-			for (var y = startY; y <= startY + ship.getLength(); y++) {
+			for (var y = startY; y < startY + ship.getLength(); y++) {
 				this.squares[startX][y].placeShip(ship);
 			}
 		}
@@ -39,12 +39,18 @@ Board.prototype = {
 	canPlace: function (ship, startX, startY, isHorizontal) {
 		if (isHorizontal) {
 			for (var x = startX; x < startX + ship.getLength(); x++) {
+				if (x > 9) {
+					return;
+				}
 				if (this.squares[x][startY].hasShip()) {
 					return false;
 				}
 			}
 		} else {
 			for (var y = startY; y < startY + ship.getLength(); y++) {
+				if (y > 9) {
+					return;
+				}
 				if (this.squares[startX][y].hasShip()) {
 					return false;
 				}
@@ -95,10 +101,13 @@ Board.prototype = {
 	},
 
 	hit: function (x, y, hit) {
-		if(this.squares[x][y]) {
-			this.squares[x][y].shoot();
-			if (hit) {
-				this.squares[x][y].hit();
+		console.log(x + ' - ' + y);
+		if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+			if(this.squares[x][y]) {
+				this.squares[x][y].shoot();
+				if (hit) {
+					this.squares[x][y].hit();
+				}
 			}
 		}
 	}

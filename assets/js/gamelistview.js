@@ -1,7 +1,6 @@
 function GameListView(app) {
 	this.app = app;
 	var quotes = this.app.languages.getWord('quotes');
-	$('[data-toggle="tooltip"]').tooltip();
 	window.setInterval(function() {
 		$('.flip-container').toggleClass('hover');
 		if ($('#notification[style*="display:none"]')) {
@@ -109,8 +108,6 @@ GameListView.prototype = {
 	},
 
 	onGameListReceived: function (gameList) {
-		//console.log(gameList.getGames());
-
 		var table = $('#gamelist');
 		table.empty();
 
@@ -148,7 +145,7 @@ GameListView.prototype = {
 			var row = $('<tr></tr>');
 			var games = gameList.getDoneGames();
 			var game = games[d];
-			row.append('<td><button disabled class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + game.getEnemyName() + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + game.getEnemyName() + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
@@ -156,5 +153,6 @@ GameListView.prototype = {
 
 		table.show();
 		$('#createdpanel').show();
+		$('[data-toggle="tooltip"]').tooltip();
 	}
 }
