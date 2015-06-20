@@ -137,6 +137,7 @@ App.prototype = {
 				if (data.msg && data.msg == "success") {
 					alert("The board was successfully posted.");
 					self.onGameBoardPosted(gameId, data.status);
+					self.switchView('list');
 				} else {
 					alert("Something went wrong when sending the board...");
 				}
