@@ -27,8 +27,8 @@ SetupBoardView.prototype = {
 		for (var i = 0; i < ships.length; i++) {
 			var ship = ships[i];
 			var offset = i * 50;
-			var width = ship.getLength() * 48;
-			$('#view').append('<div class="box" data-ship="' + i + '" data-length="' + ship.getLength() + '" style="background-image: url(assets/images/ships/ship' + ship.getLength() + '.png); left: 100px; top:' + offset + 'px; width:' + width + 'px; height:48px;"></div>');
+			var width = ship.getLength() * 50;
+			$('#view').append('<div class="box" data-ship="' + i + '" data-length="' + ship.getLength() + '" style="background-image: url(assets/images/ships/ship' + ship.getLength() + '.png); background-size: cover; left: 100px; top:' + offset + 'px; width:' + width + 'px; height:50px;"></div>');
 		}
 
 		this.ships = ships;
@@ -64,7 +64,10 @@ SetupBoardView.prototype = {
 				window.onkeydown = function(e) {
 					if(e.keyCode == 32 && e.target == document.body) {
 						e.preventDefault();
-						$(event.target).toggleClass('rotated');
+						var attr = $(event.target).attr('dragging');
+						if (typeof attr !== typeof undefined && attr !== false) {
+							$(event.target).toggleClass('rotated');
+						}
 					}
 				};
 			}

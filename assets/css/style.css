@@ -121,8 +121,8 @@ button:disabled, button:disabled:hover {
 }
 
 #grid1 div, #grid2 div {
-	width: 40px;
-	height: 40px;
+	width: 10%;
+	height: 10%;
 	float: left;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 }

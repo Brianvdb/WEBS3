@@ -90,12 +90,12 @@ GameBoardView.prototype = {
 
 				var bgImg = "url(assets/images/ships/ship" + ship.getLength() + ".png)";
 
-				var width = 38;
-				var height = 38;
+				var width = 40;
+				var height = 40;
 				if (ship.isVertical()) {
-					width = 38 * ship.getLength();
+					width = 40 * ship.getLength();
 				} else {
-					width = 38 * ship.getLength();
+					width = 40 * ship.getLength();
 				}
 
 				shipElem.
