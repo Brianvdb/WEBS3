@@ -28,7 +28,7 @@ SetupBoardView.prototype = {
 			var ship = ships[i];
 			var offset = i * 50;
 			var width = ship.getLength() * 48;
-			$('#view').append('<div class="box" data-ship="' + i + '" data-length="' + ship.getLength() + '" style="background-image: url(assets/images/ship' + ship.getLength() + '.png); left: 100px; top:' + offset + 'px; width:' + width + 'px; height:48px;"></div>');
+			$('#view').append('<div class="box" data-ship="' + i + '" data-length="' + ship.getLength() + '" style="background-image: url(assets/images/ships/ship' + ship.getLength() + '.png); left: 100px; top:' + offset + 'px; width:' + width + 'px; height:48px;"></div>');
 		}
 
 		this.ships = ships;

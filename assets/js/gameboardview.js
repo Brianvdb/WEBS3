@@ -88,7 +88,7 @@ GameBoardView.prototype = {
 				var targetIndex = ship.getY() * 10 + ship.getX();
 				var target = $("#grid1 [data-targetIndex='" + targetIndex + "']");
 
-				var bgImg = "url(assets/images/ship" + ship.getLength() + ".png)";
+				var bgImg = "url(assets/images/ships/ship" + ship.getLength() + ".png)";
 
 				var width = 38;
 				var height = 38;

@@ -21,7 +21,6 @@ App.prototype = {
 		var url = this.server + "users/me/games?token=" + this.token;
 		var self = this;
 		$.get(url, function (data) {
-			console.log(data);
 			self.onGameListReceived(new Gamelist(data));
 		});
 	},
@@ -165,15 +164,13 @@ App.prototype = {
 	onShootPosted: function (game, state) {
 		switch (state) {
 			case "SPLASH":
-				document.querySelector('#splash').play();
-				alert("SPLASH!!!");
+				this.onShootSound('splash', 'splash');
 				break;
 			case "BOOM":
-				document.querySelector('#explosion').play();
-				alert("You hit a ship!");
+				this.onShootSound('explosion', 'boom');
 				break;
 			default:
-				alert("Could not send shot: " + state);
+				this.onShootSound('', 'could not shoot');
 				break;
 		}
 
@@ -181,6 +178,17 @@ App.prototype = {
 			this.gameView.onShootPosted(game, state);
 		}
 
+	},
+
+	onShootSound: function (state, message) {
+		if (state.length > 1) {
+			var element = document.querySelector('#' + state);
+			element.pause();
+			element.currentTime = 0;
+			element.play();
+		}
+		$('#hit-message').text(this.languages.getWord(message));
+		$('#hit-notification').slideToggle(250).delay(1500).slideToggle(150);
 	},
 
 	onShipsReceived: function (ships) {

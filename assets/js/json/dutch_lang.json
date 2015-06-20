@@ -17,6 +17,9 @@
 	"enemy turn" : "Tegenstanders beurt",
 	"your board" : "Jouw bord",
 	"enemy board" : "Tegenstanders bord",
+	"splash" : "Plons!!!",
+	"boom" : "Je hebt een ship geraakt!",
+	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",
 	"quotes" : [
 		"Speel nu!",
 		"Tip: Plaats de schepen in verschillende rotaties om de tegenstander te verwarren.",

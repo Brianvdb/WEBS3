@@ -17,6 +17,9 @@
 	"enemy turn" : "Feind wiederum",
 	"your board" : "Ihr bord",
 	"enemy board" : "Feinde bord",
+	"splash" : "Spritzen!!!",
+	"boom" : "Sie haben ein schiff getroffen!",
+	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",
 	"quotes" : [
 		"Jetzt spielen!",
 		"Tip: Legen Sie die schiffe in verschiedenen drehungen, um den feind zu verwirren.",

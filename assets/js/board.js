@@ -101,7 +101,6 @@ Board.prototype = {
 	},
 
 	hit: function (x, y, hit) {
-		console.log(x + ' - ' + y);
 		if (x >= 0 && x < 10 && y >= 0 && y < 10) {
 			if(this.squares[x][y]) {
 				this.squares[x][y].shoot();

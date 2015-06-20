@@ -15,6 +15,7 @@ GameListView.prototype = {
 	init: function () {
 		$('#gamelist').hide();
 		$('#createdpanel').hide();
+		$('#languagepanel').hide();
 
 		this.app.requestGameList();
 
@@ -151,8 +152,9 @@ GameListView.prototype = {
 
 		$('.navigate-game').click($.proxy(this.onNavigateClick, this));
 
-		table.show();
-		$('#createdpanel').show();
+		table.slideDown();
+		$('#createdpanel').slideDown();
+		$('#languagepanel').slideDown();
 		$('[data-toggle="tooltip"]').tooltip();
 	}
 }
