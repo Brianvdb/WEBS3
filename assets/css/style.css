@@ -77,14 +77,26 @@ button:disabled, button:disabled:hover {
 	height: 500px;
 	position: relative;
 	margin: 10px auto 0 auto;
-	background: rgba(255, 255, 255, 0.3);
+}
+
+#grid:after, #grid1:after, #grid2:after {
+	content: "";
+	background: url('../images/grid_background.png');
+	background-size: cover;
+	opacity: 0.8;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;   
 }
 
 #grid div {
 	width: 50px;
 	height: 50px;
 	float: left;
-	border: 1px solid #ccc;
+	border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #gamewrapper {
@@ -100,7 +112,6 @@ button:disabled, button:disabled:hover {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	background: rgba(255, 255, 255, 0.3);
 }
 
 #grid1 div div, #grid2 div div {
@@ -113,7 +124,7 @@ button:disabled, button:disabled:hover {
 	width: 40px;
 	height: 40px;
 	float: left;
-	border: 1px solid #ccc;
+	border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #sendboard {
@@ -188,7 +199,7 @@ button:disabled, button:disabled:hover {
 .hit {
 	position: absolute;
 	z-index: 9999;
-	opacity: 0.8;
+	opacity: 0.5;
 	background-color: #4CAF50;
 	animation: fadeinhit 0.5s;
 	-moz-animation: fadeinhit 0.5s;
@@ -197,7 +208,7 @@ button:disabled, button:disabled:hover {
 }
 
 .hit-hover:hover {
-	opacity: 0.8;
+	opacity: 0.5;
 	background-color: black;
 	cursor: pointer;
 }
@@ -318,6 +329,10 @@ button:disabled, button:disabled:hover {
 	margin-top: 10px;
 }
 
+.board-assign {
+	font-size: 1.2em;
+}
+
 /* ------------------------- keyframes ------------------------- */
 @keyframes fadein {
 	from	{opacity:0;}
@@ -338,19 +353,19 @@ button:disabled, button:disabled:hover {
 
 @keyframes fadeinhit {
 	from	{opacity:0;}
-	to 		{opacity:0.8;}
+	to 		{opacity:0.5;}
 }
 @-moz-keyframes fadeinhit {
 	from	{opacity:0;}
-	to 		{opacity:0.8;}
+	to 		{opacity:0.5;}
 }
 @-webkit-keyframes fadeinhit {
 	from	{opacity:0;}
-	to 		{opacity:0.8;}
+	to 		{opacity:0.5;}
 }
 @-o-keyframes fadeinhit {
 	from	{opacity:0;}
-	to 		{opacity:0.8;}
+	to 		{opacity:0.5;}
 }
 
 
