@@ -88,6 +88,7 @@ GameBoardView.prototype = {
 			this.myTurn = false;
 			var message = game.youWon() ? this.app.languages.getTranslation('you won') : this.app.languages.getTranslation('you lost');
 			$('#turn').html(this.app.languages.getTranslation('game over') + '<br/>' + message);
+			this.updatePositions();
 		} else if (game.isYourTurn()) {
 			this.myTurn = true;
 			$('#turn').text(this.app.languages.getTranslation('your turn'));
