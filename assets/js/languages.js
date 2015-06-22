@@ -54,8 +54,9 @@ Languages.prototype = {
 
 	translate: function() {
 		$.each(this.language, function(k, v) {
-			if ($("[data-language='" + k + "']").length) {
-				$("[data-language='" + k + "']").text(v);
+			var element = $("[data-language='" + k + "']");
+			if (element.length) {
+				element.text(v);
 			}
 		});
 	},
