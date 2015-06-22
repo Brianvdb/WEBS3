@@ -128,11 +128,11 @@ App.prototype = {
 		$.post(url, postObject)
 			.done(function (data) {
 				if (data.msg && data.msg == "success") {
-					this.showError('ships not loaded', 1500);
+					self.showError('board has been posted', 1500);
 					self.onGameBoardPosted(gameId, data.status);
 					self.switchView('list');
 				} else {
-					alert("Something went wrong when sending the board...");
+					self.showError('board has not been posted', 1500);
 				}
 			});
 

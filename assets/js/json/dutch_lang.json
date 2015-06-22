@@ -28,6 +28,8 @@
 	"gamelist empty" : "De spellijst is geleegd.",
 	"game has been created already" : "Er is al een spel aangemaakt!",
 	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",
+	"board has been posted" : "Het bord is succesvol verstuurd!",
+	"board has not been posted" : "Het versturen van het bord heeft gefaald!",
 	"quotes" : [
 		"Speel nu!",
 		"Tip: Plaats de schepen in verschillende rotaties om de tegenstander te verwarren.",
@@ -35,6 +37,6 @@
 		"Je kan een spel starten tegen een computer of een echte speler!",
 		"Je kunt de taal veranderen in het hoofdmenu.",
 		"Vet cool!",
-		"11 / 10 - WEBS3 docenten"
+		"Super gaaf!"
 	]
 }

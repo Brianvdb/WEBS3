@@ -28,6 +28,8 @@
 	"gamelist empty" : "Die spieleliste geleert wurde.",
 	"game has been created already" : "Ein spiel ist bereits angelegt!",
 	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",
+	"board has been posted" : "Der vorstand wurde erfolgreich versendet!",
+	"board has not been posted" : "Das board bein hasnt erfolgreich gebucht!",
 	"quotes" : [
 		"Jetzt spielen!",
 		"Tip: Legen Sie die schiffe in verschiedenen drehungen, um den feind zu verwirren.",
@@ -35,6 +37,6 @@
 		"Sie können ein spiel gegen einen computer oder mit einem vorhandenen spieler zu starten!",
 		"Sie können die sprache im hauptmenü ändern.",
 		"Sehr cool!",
-		"11 / 10 - WEBS3 lehrerinnen"
+		"Ehrfürchtige!"
 	]
 }
