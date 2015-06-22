@@ -60,15 +60,15 @@ GameBoardView.prototype = {
 	onRobotClick: function (event) {
 		this.robot = !this.robot;
 		if(this.robot) {
-			console.log(this.app.languages.getWord('robot on'));
-			$('#robot').text(this.app.languages.getWord('robot on'));
+			console.log(this.app.languages.getTranslation('robot on'));
+			$('#robot').text(this.app.languages.getTranslation('robot on'));
 
 			if(this.game && this.myTurn) {
 				this.makeMove();
 			}
 
 		} else {
-			$('#robot').text(this.app.languages.getWord('robot off'));
+			$('#robot').text(this.app.languages.getTranslation('robot off'));
 		}
 	},
 
@@ -86,14 +86,14 @@ GameBoardView.prototype = {
 
 		if (game.getStatus() == 'done') {
 			this.myTurn = false;
-			var message = game.youWon() ? this.app.languages.getWord('you won') : this.app.languages.getWord('you lost');
-			$('#turn').html(this.app.languages.getWord('game over') + '<br/>' + message);
+			var message = game.youWon() ? this.app.languages.getTranslation('you won') : this.app.languages.getTranslation('you lost');
+			$('#turn').html(this.app.languages.getTranslation('game over') + '<br/>' + message);
 		} else if (game.isYourTurn()) {
 			this.myTurn = true;
-			$('#turn').text(this.app.languages.getWord('your turn'));
+			$('#turn').text(this.app.languages.getTranslation('your turn'));
 		} else {
 			this.myTurn = false;
-			$('#turn').text(this.app.languages.getWord('enemy turn'));
+			$('#turn').text(this.app.languages.getTranslation('enemy turn'));
 		}
 
 		if (!this.ships) {

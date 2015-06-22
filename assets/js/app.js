@@ -176,7 +176,7 @@ App.prototype = {
 	},
 
 	showError: function (text, delay) {
-		$('#error-text').text(this.languages.getWord(text));
+		$('#error-text').text(this.languages.getTranslation(text));
 		$('#error').slideToggle(500).delay(delay).slideToggle(500);
 	},
 
@@ -188,7 +188,7 @@ App.prototype = {
 			element.play();
 		}
 		if (!robot) {
-			$('#hit-message').text(this.languages.getWord(message));
+			$('#hit-message').text(this.languages.getTranslation(message));
 			$('#hit-notification').slideToggle(250).delay(1500).slideToggle(150);
 		}
 	},

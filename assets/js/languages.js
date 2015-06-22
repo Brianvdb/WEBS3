@@ -61,7 +61,7 @@ Languages.prototype = {
 		});
 	},
 
-	getWord: function(string) {
+	getTranslation: function(string) {
 		return this.language[string];
 	}
 }

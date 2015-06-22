@@ -1,6 +1,6 @@
 function GameListView(app) {
 	this.app = app;
-	var quotes = this.app.languages.getWord('quotes');
+	var quotes = this.app.languages.getTranslation('quotes');
 	window.setInterval(function() {
 		$('.flip-container').toggleClass('hover');
 		if ($('#notification[style*="display:none"]')) {
@@ -117,7 +117,7 @@ GameListView.prototype = {
 
 		var allGames = gameList.getGames();
 
-		if (gameList.getStartedGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('started games') + '</h4></th></tr>');
+		if (gameList.getStartedGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getTranslation('started games') + '</h4></th></tr>');
 		for (var a = 0; a < gameList.getStartedGames().length; a++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getStartedGames();
@@ -126,7 +126,7 @@ GameListView.prototype = {
 			table.append(row);
 		}
 
-		if (gameList.getSetupGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('setup games') + '</h4></th></tr>');
+		if (gameList.getSetupGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getTranslation('setup games') + '</h4></th></tr>');
 		for (var b = 0; b < gameList.getSetupGames().length; b++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getSetupGames();
@@ -135,16 +135,16 @@ GameListView.prototype = {
 			table.append(row);
 		}
 
-		if (gameList.getQueueGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('que games') + '</h4></th></tr>');
+		if (gameList.getQueueGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getTranslation('que games') + '</h4></th></tr>');
 		for (var c = 0; c < gameList.getQueueGames().length; c++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getQueueGames();
 			var game = games[c];
-			row.append('<td><button disabled class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + this.app.languages.getWord('undefined') + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
+			row.append('<td><button disabled class="navigate-game" data-id=' + game.getId() + ' data-state="' + game.getStatus() + '">' + this.app.languages.getTranslation('undefined') + '<span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button></td>');
 			table.append(row);
 		}
 
-		if (gameList.getDoneGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getWord('done games') + '</h4></th></tr>');
+		if (gameList.getDoneGames().length != 0) table.append('<tr><th class="center"><h4>' + this.app.languages.getTranslation('done games') + '</h4></th></tr>');
 		for (var d = 0; d < gameList.getDoneGames().length; d++) {
 			var row = $('<tr></tr>');
 			var games = gameList.getDoneGames();
