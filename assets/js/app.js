@@ -26,16 +26,10 @@ App.prototype = {
 	},
 
 	requestNewGame: function (computer) {
-		var url;
-		if (computer) {
-			url = this.server + "games/AI?token=" + this.token;
-		} else {
-			url = this.server + "games?token=" + this.token;
-		}
+		var url = (computer ? this.server + "games/AI?token=" + this.token : url = this.server + "games?token=" + this.token);
 
 		var self = this;
 		$.get(url, function (data) {
-			// TODO: handle data
 			console.log(data);
 			self.onNewGameCreated(data);
 		});
@@ -134,7 +128,7 @@ App.prototype = {
 		$.post(url, postObject)
 			.done(function (data) {
 				if (data.msg && data.msg == "success") {
-					alert("The board was successfully posted.");
+					this.showError('ships not loaded', 1500);
 					self.onGameBoardPosted(gameId, data.status);
 					self.switchView('list');
 				} else {
@@ -177,6 +171,11 @@ App.prototype = {
 			this.gameView.onShootPosted(game, state);
 		}
 
+	},
+
+	showError: function (text, delay) {
+		$('#error-text').text(this.languages.getWord(text));
+		$('#error').slideToggle(500).delay(delay).slideToggle(500);
 	},
 
 	onShootSound: function (state, message, robot) {

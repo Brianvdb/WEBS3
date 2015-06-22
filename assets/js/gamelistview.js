@@ -77,13 +77,13 @@ GameListView.prototype = {
 	},
 
 	onGamesRemoved: function () {
-		alert("De gamelijst is leeggemaakt");
+		this.app.showError('gamelist empty', 1500);
 		this.app.requestGameList();
 	},
 
 	onGameCreated: function (game) {
 		if (game.msg && game.msg.indexOf('Error') == 0) {
-			alert("Er is al een game aangemaakt.");
+			this.app.showError('game has been created already', 1500);
 			return;
 		}
 

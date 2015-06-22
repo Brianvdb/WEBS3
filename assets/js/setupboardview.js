@@ -118,7 +118,7 @@ SetupBoardView.prototype = {
 
 	onRandomBoardClick: function (event) {
 		if (!this.ships) {
-			alert("Ships are not loaded yet...");
+			this.app.showError('ships not loaded', 1500);
 			return;
 		}
 
@@ -175,7 +175,7 @@ SetupBoardView.prototype = {
 
 	onSendBoardClick: function (event) {
 		if (!this.ships) {
-			alert("Ships are not loaded yet...");
+			this.app.showError('ships not loaded', 1500);
 			return;
 		}
 
@@ -187,7 +187,7 @@ SetupBoardView.prototype = {
 				ship.setVertical(false);
 			}
 			if (!ship.isPlaced()) {
-				alert("Place all ships on the board");
+				this.app.showError('place all ships on board', 1500);
 				return;
 			}
 		}

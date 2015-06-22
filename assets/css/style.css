@@ -301,6 +301,24 @@ button:disabled, button:disabled:hover {
 	font-size: 2em;
 }
 
+#error {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background: #FFEB3B;
+	opacity: 0.9;
+	color: #000;
+	display: none;
+	z-index: 999;
+}
+
+#error #error-message {
+	width: 100%;
+	text-align: center;
+	padding: 30px 0px;
+	font-size: 2em;
+}
+
 #hit-notification {
 	width: 100%;
 	position: fixed;

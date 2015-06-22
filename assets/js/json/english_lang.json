@@ -23,7 +23,10 @@
     "robot off" : "Robot: off",
 	"splash" : "Splash!!!",
 	"boom" : "You've hit a ship!",
-	"could not shoot" : "Einen schuss konnte nicht gesendet werden, ist spiel wahrscheinlich mehr als :(",
+	"ships not loaded" : "Ships are not loaded yet...",
+	"place all ships on board" : "Place all the ships on the board...",
+	"game has been created already" : "A game has already been created!",
+	"could not shoot" : "A shot could not be fired, the game might be over :(",
 	"quotes" : [
 		"Play now!",
 		"Tip: Place the ships in different rotations to confuse the enemy.",

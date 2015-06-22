@@ -22,4 +22,3 @@ GameEntry.prototype = {
 		return this.enemyName
 	}
 }
-

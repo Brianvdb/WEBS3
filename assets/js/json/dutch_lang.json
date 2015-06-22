@@ -23,6 +23,10 @@
     "robot off" : "Robot: uit",
 	"splash" : "Plons!!!",
 	"boom" : "Je hebt een ship geraakt!",
+	"ships not loaded" : "Schepen zijn nog niet geladen...",
+	"place all ships on board" : "Plaats alle schepen op het bord...",
+	"gamelist empty" : "De spellijst is geleegd.",
+	"game has been created already" : "Er is al een spel aangemaakt!",
 	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",
 	"quotes" : [
 		"Speel nu!",
