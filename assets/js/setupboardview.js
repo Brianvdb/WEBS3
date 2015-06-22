@@ -212,7 +212,7 @@ SetupBoardView.prototype = {
 	},
 
 	updatePositions: function () {
-		var offset = $('#view').offset().top
+		var offset = $('#view').offset().top;
 		$('div[data-index]').each(function () {
 			var target = $("[data-targetIndex='" + $(this).attr('data-index') + "']");
 			$(this).

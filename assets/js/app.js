@@ -130,7 +130,7 @@ App.prototype = {
 				if (data.msg && data.msg == "success") {
 					self.showError('board has been posted', 1500);
 					self.onGameBoardPosted(gameId, data.status);
-					self.switchView('list');
+
 				} else {
 					self.showError('board has not been posted', 1500);
 				}
@@ -139,8 +139,10 @@ App.prototype = {
 	},
 
 	onGameBoardPosted: function (gameId, status) {
-		if (this.status == "started") {
-
+		if (status == "started") {
+			this.switchView('game', gameId);
+		} else {
+			this.switchView('list');
 		}
 	},
 
