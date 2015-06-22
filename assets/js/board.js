@@ -19,7 +19,6 @@ function Board(size, squares) {
 Board.prototype = {
 
 	addShip: function (ship, startX, startY, isHorizontal) {
-		// TODO: implement check whether given ship can be placed on the board
 		if (isHorizontal) {
 			for (var x = startX; x < startX + ship.getLength(); x++) {
 				this.squares[x][startY].placeShip(ship);
@@ -100,8 +99,63 @@ Board.prototype = {
 		return this.size;
 	},
 
+	aiMove: function() {
+		// simple AI
+
+		//// check hits
+		for (var x = 0; x < this.size; x++) {
+			for (var y = 0; y < this.size; y++) {
+				if(this.squares[x][y].isHit()) {
+
+				}
+			}
+		}
+
+		//// pick random move
+
+		while(true) {
+			var x = Math.floor(Math.random() * 10);
+			var y = Math.floor(Math.random() * 10);
+			if(!this.squares[x][y].hasBeenShot()) {
+				return { x: x, y: y };
+			}
+		}
+
+	},
+
+	getSurroundInfo: function(x, y) {
+		// left
+		var leftInBounds = this.inBounds(x - 1, y), leftShot = false, leftHit = false;
+		if(leftInBounds) {
+			leftShot = this.squares[x - 1][y].hasBeenShot();
+			leftHit = this.squares[x - 1][y].isHit();
+		}
+		// right
+		var rightInBounds = this.inBounds(x + 1, y), rightShot = false, rightHit = false;
+		if(rightInBounds) {
+			rightShot = this.squares[x + 1][y].hasBeenShot();
+			rightHit = this.squares[x + 1][y].isHit();
+		}
+		// up
+		var upInBounds = this.inBounds(x , y - 1), upShot = false, upHit = false;
+		if(upInBounds) {
+			upShot = this.squares[x ][y - 1].hasBeenShot();
+			upHit = this.squares[x ][y - 1].isHit();
+		}
+		// down
+		var downInBounds = this.inBounds(x , y + 1), upShot = false, upHit = false;
+		if(downInBounds) {
+			upShot = this.squares[x ][y + 1].hasBeenShot();
+			upHit = this.squares[x ][y + 1].isHit();
+		}
+	},
+
+	inBounds: function(x, y) {
+		return x >= 0 && x < 10 && y >= 0 && y < 10;
+	},
+
 	hit: function (x, y, hit) {
-		if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+		if (this.inBounds(x, y)) {
 			if(this.squares[x][y]) {
 				this.squares[x][y].shoot();
 				if (hit) {

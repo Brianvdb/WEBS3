@@ -42,7 +42,7 @@ Square.prototype = {
 	},
 
 	isHit: function () {
-		return this.shot && this.wasHit
+		return this.shot && this.wasHit;
 	},
 
 	removeShip: function () {

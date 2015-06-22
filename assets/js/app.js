@@ -53,7 +53,6 @@ App.prototype = {
 			} else if (data.status == 'setup') {
 				game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName);
 			} else if (data.status == 'started' || data.status == 'done') {
-				// TODO: parse boards
 				game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName);
 
 				game.setMyBoard(self.parseBoard(data.myGameboard, false));
@@ -155,7 +154,6 @@ App.prototype = {
 		var url = this.server + "games/" + game.getId() + "/shots?token=" + this.token;
 		var shot = {x: String.fromCharCode(97 + x), y: y + 1};
 		var self = this;
-		console.log("x: " + shot.x + " y: " + shot.y);
 		$.post(url, shot)
 			.done(function (data) {
 				self.onShootPosted(game, data);

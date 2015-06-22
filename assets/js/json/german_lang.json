@@ -18,6 +18,8 @@
 	"enemy turn" : "Feind wiederum",
 	"your board" : "Ihr bord",
 	"enemy board" : "Feinde bord",
+    "robot on" : "Robot: ein",
+    "robot off" : "Robot: aus",
 	"splash" : "Spritzen!!!",
 	"boom" : "Sie haben ein schiff getroffen!",
 	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",

@@ -6,6 +6,7 @@ GameBoardView.prototype = {
 	init: function (gameId) {
 		this.gameId = gameId;
 		this.myTurn = false;
+		this.robot = false;
 
 		this.updateGame();
 
@@ -49,10 +50,26 @@ GameBoardView.prototype = {
 		$(window).resize(this.updatePositions);
 
 		$('#goback').click($.proxy(this.onBackClick, this));
+		$('#robot').click($.proxy(this.onRobotClick, this));
 	},
 
 	onBackClick: function (event) {
 		this.app.switchView('list');
+	},
+
+	onRobotClick: function (event) {
+		this.robot = !this.robot;
+		if(this.robot) {
+			console.log(this.app.languages.getWord('robot on'));
+			$('#robot').text(this.app.languages.getWord('robot on'));
+
+			if(this.game && this.myTurn) {
+				this.makeMove();
+			}
+
+		} else {
+			$('#robot').text(this.app.languages.getWord('robot off'));
+		}
 	},
 
 	onGameReceived: function (game) {
@@ -141,6 +158,18 @@ GameBoardView.prototype = {
 
 		if (this.myTurn) {
 			$('#grid2 .clickable').addClass('hit-hover').click($.proxy(this.onShoot, this));
+
+			if(this.robot) {
+				this.makeMove();
+			}
+		}
+	},
+
+	makeMove: function() {
+		var move = this.game.getEnemyBoard().aiMove();
+		if (this.myTurn) {
+			this.app.postShoot(this.game, move.x, move.y);
+			this.myTurn = false;
 		}
 	},
 

@@ -18,6 +18,8 @@
 	"enemy turn" : "Tegenstanders beurt",
 	"your board" : "Jouw bord",
 	"enemy board" : "Tegenstanders bord",
+    "robot on" : "Robot: aan",
+    "robot off" : "Robot: uit",
 	"splash" : "Plons!!!",
 	"boom" : "Je hebt een ship geraakt!",
 	"could not shoot" : "Kon geen schot afvuren, het spel is waarschijnlijk voorbij :(",

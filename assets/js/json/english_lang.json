@@ -18,6 +18,8 @@
 	"enemy turn" : "Enemy turn",
 	"your board" : "Your board",
 	"enemy board" : "Enemies board",
+    "robot on" : "Robot: on",
+    "robot off" : "Robot: off",
 	"splash" : "Splash!!!",
 	"boom" : "You've hit a ship!",
 	"could not shoot" : "Einen schuss konnte nicht gesendet werden, ist spiel wahrscheinlich mehr als :(",
