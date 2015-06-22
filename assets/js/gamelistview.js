@@ -59,18 +59,21 @@ GameListView.prototype = {
 	},
 
 	onDutchLanguageClick: function (event) {
-		this.app.languages.setLanguageCookie('dutch'); 
-		location.reload();
+		this.app.languages.setLanguageCookie('dutch');
+		this.app.reloadLanguages();
+		this.app.switchView('list');
 	},
 
 	onEnglishLanguageClick: function (event) {
-		this.app.languages.setLanguageCookie('english'); 
-		location.reload();
+		this.app.languages.setLanguageCookie('english');
+		this.app.reloadLanguages();
+		this.app.switchView('list');
 	},
 
 	onGermanLanguageClick: function (event) {
-		this.app.languages.setLanguageCookie('german'); 
-		location.reload();
+		this.app.languages.setLanguageCookie('german');
+		this.app.reloadLanguages();
+		this.app.switchView('list');
 	},
 
 	onGamesRemoved: function () {

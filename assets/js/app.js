@@ -243,6 +243,10 @@ App.prototype = {
 		});
 	},
 
+	reloadLanguages: function() {
+		this.languages = new Languages();
+	},
+
 	switchView: function (view, obj) {
 		var self = this;
 		if (this.currentView) {
