@@ -106,7 +106,35 @@ Board.prototype = {
 		for (var x = 0; x < this.size; x++) {
 			for (var y = 0; y < this.size; y++) {
 				if(this.squares[x][y].isHit()) {
-
+					var info = this.getInfo(x, y, this);
+					if(info.west().hit || info.east().hit) {
+						if(info.west().inBounds && !info.west().shot) {
+							return info.west();
+						}
+						if(info.east().inBounds && !info.east().shot) {
+							return info.east();
+						}
+					} else if(info.north().hit || info.south().hit) {
+						if(info.north().inBounds && !info.north().shot) {
+							return info.north();
+						}
+						if(info.south().inBounds && !info.south().shot) {
+							return info.south();
+						}
+					} else {
+						if (info.west().inBounds && !info.west().shot) {
+							return info.west();
+						}
+						if (info.east().inBounds && !info.east().shot) {
+							return info.east();
+						}
+						if (info.north().inBounds && !info.north().shot) {
+							return info.north();
+						}
+						if (info.south().inBounds && !info.south().shot) {
+							return info.south();
+						}
+					}
 				}
 			}
 		}
@@ -123,30 +151,27 @@ Board.prototype = {
 
 	},
 
-	getSurroundInfo: function(x, y) {
-		// left
-		var leftInBounds = this.inBounds(x - 1, y), leftShot = false, leftHit = false;
-		if(leftInBounds) {
-			leftShot = this.squares[x - 1][y].hasBeenShot();
-			leftHit = this.squares[x - 1][y].isHit();
+	getInfo: function(x, y, instance) {
+		var inBounds = this.inBounds(x, y), shot = false, hit = false;
+		if(inBounds) {
+			shot = this.squares[x][y].hasBeenShot();
+			hit = this.squares[x][y].isHit();
 		}
-		// right
-		var rightInBounds = this.inBounds(x + 1, y), rightShot = false, rightHit = false;
-		if(rightInBounds) {
-			rightShot = this.squares[x + 1][y].hasBeenShot();
-			rightHit = this.squares[x + 1][y].isHit();
-		}
-		// up
-		var upInBounds = this.inBounds(x , y - 1), upShot = false, upHit = false;
-		if(upInBounds) {
-			upShot = this.squares[x ][y - 1].hasBeenShot();
-			upHit = this.squares[x ][y - 1].isHit();
-		}
-		// down
-		var downInBounds = this.inBounds(x , y + 1), upShot = false, upHit = false;
-		if(downInBounds) {
-			upShot = this.squares[x ][y + 1].hasBeenShot();
-			upHit = this.squares[x ][y + 1].isHit();
+
+		return {
+			x: x,
+			y: y,
+			inBounds: inBounds,
+			shot: shot,
+			hit: hit,
+			west: function() { return instance.getInfo(x - 1, y, instance); },
+			east: function() { return instance.getInfo(x + 1, y, instance); },
+			north: function() { return instance.getInfo(x, y - 1, instance); },
+			south: function() { return instance.getInfo(x, y + 1, instance); },
+			northwest: function() { return instance.getInfo(x - 1, y - 1, instance); },
+			northeast: function() { return instance.getInfo(x + 1, y - 1, instance); },
+			southwest: function() { return instance.getInfo(x - 1, y + 1, instance); },
+			southeast: function() { return instance.getInfo(x + 1, y + 1, instance); }
 		}
 	},
 
