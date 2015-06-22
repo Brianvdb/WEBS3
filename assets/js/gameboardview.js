@@ -18,6 +18,7 @@ GameBoardView.prototype = {
 		this.bindListeners();
 		//this.listen();
 		this.app.languages.translate();
+		$('#grid2 div').css('cursor','url(assets/images/crosshair.png) 50 50, auto');
 	},
 	
 	listen: function () {
@@ -25,7 +26,6 @@ GameBoardView.prototype = {
 		
 		this.listener = setInterval(function () {
 			self.app.requestGame(self.gameId, function (game) {
-				
 				self.onGameReceived(game)
 			});
 		}, 2000);
@@ -168,7 +168,7 @@ GameBoardView.prototype = {
 	makeMove: function() {
 		var move = this.game.getEnemyBoard().aiMove();
 		if (this.myTurn) {
-			this.app.postShoot(this.game, move.x, move.y);
+			this.app.postShoot(this.game, move.x, move.y, this.robot);
 			this.myTurn = false;
 		}
 	},
@@ -179,7 +179,7 @@ GameBoardView.prototype = {
 		var y = Math.floor(index / 10);
 
 		if (this.myTurn) {
-			this.app.postShoot(this.game, x, y);
+			this.app.postShoot(this.game, x, y, this.robot);
 			this.myTurn = false;
 		}
 	},

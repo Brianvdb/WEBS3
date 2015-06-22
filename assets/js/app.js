@@ -150,26 +150,26 @@ App.prototype = {
 		}
 	},
 
-	postShoot: function (game, x, y) {
+	postShoot: function (game, x, y, robot) {
 		var url = this.server + "games/" + game.getId() + "/shots?token=" + this.token;
 		var shot = {x: String.fromCharCode(97 + x), y: y + 1};
 		var self = this;
 		$.post(url, shot)
 			.done(function (data) {
-				self.onShootPosted(game, data);
+				self.onShootPosted(game, data, robot);
 			});
 	},
 
-	onShootPosted: function (game, state) {
+	onShootPosted: function (game, state, robot) {
 		switch (state) {
 			case "SPLASH":
-				this.onShootSound('splash', 'splash');
+				this.onShootSound('splash', 'splash', robot);
 				break;
 			case "BOOM":
-				this.onShootSound('explosion', 'boom');
+				this.onShootSound('explosion', 'boom', robot);
 				break;
 			default:
-				this.onShootSound('', 'could not shoot');
+				this.onShootSound('', 'could not shoot', robot);
 				break;
 		}
 
@@ -179,15 +179,17 @@ App.prototype = {
 
 	},
 
-	onShootSound: function (state, message) {
+	onShootSound: function (state, message, robot) {
 		if (state.length > 1) {
 			var element = document.querySelector('#' + state);
 			element.pause();
 			element.currentTime = 0;
 			element.play();
 		}
-		$('#hit-message').text(this.languages.getWord(message));
-		$('#hit-notification').slideToggle(250).delay(1500).slideToggle(150);
+		if (!robot) {
+			$('#hit-message').text(this.languages.getWord(message));
+			$('#hit-notification').slideToggle(250).delay(1500).slideToggle(150);
+		}
 	},
 
 	onShipsReceived: function (ships) {
