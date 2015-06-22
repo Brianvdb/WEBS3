@@ -37,7 +37,6 @@ SetupBoardView.prototype = {
 
 	bindListeners: function () {
 		var self = this;
-		var offset = $('#view').offset().top;
 		var board = this.board;
 		var ships = this.ships;
 
@@ -79,35 +78,85 @@ SetupBoardView.prototype = {
 				tolerance: "pointer",
 				hoverClass: "hovergrid",
 				drop: function (event, ui) {
-					self.dropEvent = event;
 					var x = $div.attr('data-targetIndex') % 10;
 					var y = Math.floor($div.attr('data-targetIndex') / 10);
 					var ship = ships[ui.draggable.attr('data-ship')];
-					board.removeShip(ship);
-					if (ui.draggable.hasClass('rotated')) {
-						ship.setVertical(true);
-					}
-					if (board.canPlace(ship, x, y, !ship.isVertical())) {
-						board.addShip(ship, x, y, !ship.isVertical());
-						ui.draggable.
-							css({
-								top: $div.offset().top - offset,
-								left: $div.offset().left
-							}).attr('data-index', $div.attr('data-targetIndex'))
-							.attr('data-top', $div.offset().top - offset)
-							.removeAttr('dragging');
-					} else {
-						// Do nothing..
-					}
+
+					self.onShipPlace(x, y, ship, ui.draggable, $div);
 				}
 			});
 		});
 
 		$('#goback').click($.proxy(this.onBackClick, this));
 		$('#sendboard').click($.proxy(this.onSendBoardClick, this));
+		$('#randomboard').click($.proxy(this.onRandomBoardClick, this));
 
 		$(window).scroll(this.updatePositions);
 		$(window).resize(this.updatePositions);
+	},
+
+	onShipPlace: function(x, y, ship, shipElement, gridElement) {
+		var board = this.board;
+		var offset = $('#view').offset().top;
+
+		board.removeShip(ship);
+		if (shipElement.hasClass('rotated')) {
+			ship.setVertical(true);
+		}
+		if (board.canPlace(ship, x, y, !ship.isVertical())) {
+			board.addShip(ship, x, y, !ship.isVertical());
+			shipElement.
+				css({
+					top: gridElement.offset().top - offset,
+					left: gridElement.offset().left
+				}).attr('data-index', gridElement.attr('data-targetIndex'))
+				.attr('data-top', gridElement.offset().top - offset)
+				.removeAttr('dragging');
+		}
+	},
+
+	onRandomBoardClick: function (event) {
+		if (!this.ships) {
+			alert("Ships are not loaded yet...");
+			return;
+		}
+
+		var board = this.board;
+
+		for (var i = 0; i < this.ships.length; i++) {
+			var ship = this.ships[i];
+			var shipElement = $("[data-ship=" + i + "]");
+			var vertical = this.randomInt(2) == 0;
+			if(vertical) {
+				shipElement.addClass('rotated');
+				while(true) {
+					var x = this.randomInt(board.getSize());
+					var y = this.randomInt(board.getSize() - ship.getLength());
+					if (board.canPlace(ship, x, y, false)) {
+						var targetIndex = y * 10 + x;
+						var target = $("[data-targetIndex='" + targetIndex + "']");
+						this.onShipPlace(x, y, ship, shipElement, target);
+						break;
+					}
+				}
+			} else {
+				shipElement.removeClass('rotated');
+				while(true) {
+					var x = this.randomInt(board.getSize() - ship.getLength());
+					var y = this.randomInt(board.getSize());
+					if (board.canPlace(ship, x, y, true)) {
+						var targetIndex = y * 10 + x;
+						var target = $("[data-targetIndex='" + targetIndex + "']");
+						this.onShipPlace(x, y, ship, shipElement, target);
+						break;
+					}
+				}
+			}
+		}
+	},
+
+	randomInt: function (maxValue) {
+		return Math.floor(Math.random() * maxValue);
 	},
 
 	onSendBoardClick: function (event) {
