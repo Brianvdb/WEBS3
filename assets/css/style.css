@@ -167,15 +167,15 @@ button:disabled, button:disabled:hover {
 		margin: 8px 0px;
 	}
 
-	.no-gutter .col-md-4 {
+	.no-gutter .col-md-4, .no-gutter .col-md-6 {
 		padding: 0px;
 	}
 
-	.no-gutter .col-md-4:first-child {
+	.no-gutter .col-md-4:first-child, .no-gutter .col-md-6:first-child {
 		padding-left: 15px;
 	}
 
-	.no-gutter .col-md-4:last-child {
+	.no-gutter .col-md-4:last-child, .no-gutter .col-md-6:last-child {
 		padding-right: 15px;
 	}
 

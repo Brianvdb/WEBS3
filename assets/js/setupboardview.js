@@ -90,6 +90,7 @@ SetupBoardView.prototype = {
 		$('#goback').click($.proxy(this.onBackClick, this));
 		$('#sendboard').click($.proxy(this.onSendBoardClick, this));
 		$('#randomboard').click($.proxy(this.onRandomBoardClick, this));
+		$('#removeships').click($.proxy(this.onRemoveShipsClick, this));
 
 		$(window).scroll(this.updatePositions);
 		$(window).resize(this.updatePositions);
@@ -152,6 +153,19 @@ SetupBoardView.prototype = {
 					}
 				}
 			}
+		}
+	},
+
+	onRemoveShipsClick: function (event) {
+		var board = this.board;
+		for (var i = 0; i < this.ships.length; i++) {
+			var ship = this.ships[i];
+			var elem = $('[data-ship=' + ship.getId() + ']');
+			elem.css({
+				top: elem.attr('data-ship') * 50 + 'px',
+				left: '100px'
+			}).removeAttr('data-index').removeClass('rotated');
+			board.removeShip(ship);
 		}
 	},
 

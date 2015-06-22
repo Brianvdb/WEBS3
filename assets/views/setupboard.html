@@ -1,12 +1,27 @@
 <h4 class="center" data-language="drag ships"></h4>
 <h4 class="center" data-language="rotate ships"></h4>
 
-<div id="grid">
-
-</div>
+<div id="grid"></div>
 
 <div id="buttonpanel" class="margin-top center">
-    <button id="randomboard" data-language="random board"></button>
-    <button id="sendboard" data-language="send board"></button>
-    <button id="goback" data-language="go back"></button>
+	<div class="row no-gutter">
+		<div class="col-md-6">
+			<button id="randomboard">
+				<div class="row">
+					<div class="col-md-2"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></div>
+					<div class="col-md-10" data-language="random board"></div>
+				</div>
+			</button>
+		</div>
+		<div class="col-md-6">
+			<button id="removeships">
+				<div class="row">
+					<div class="col-md-2"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+					<div class="col-md-10" data-language="remove ships"></div>
+				</div>
+			</button>
+		</div>
+	</div>
+		<button id="sendboard"><span data-language="send board"></span><span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button>
+	<button id="goback"><span data-language="go back"></span><span class="glyphicon glyphicon-menu-right pull-right" aria-hidden="true"></span></button>
 </div>
