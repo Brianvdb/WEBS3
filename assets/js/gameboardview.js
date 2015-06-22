@@ -84,7 +84,11 @@ GameBoardView.prototype = {
 		var view = $('#view');
 		var offset = view.offset().top;
 
-		if (game.isYourTurn()) {
+		if (game.getStatus() == 'done') {
+			this.myTurn = false;
+			var message = game.youWon() ? this.app.languages.getWord('you won') : this.app.languages.getWord('you lost');
+			$('#turn').html(this.app.languages.getWord('game over') + '<br/>' + message);
+		} else if (game.isYourTurn()) {
 			this.myTurn = true;
 			$('#turn').text(this.app.languages.getWord('your turn'));
 		} else {

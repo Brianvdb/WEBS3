@@ -1,9 +1,10 @@
-function Game(id, status, yourTurn, enemyId, enemyName) {
+function Game(id, status, yourTurn, enemyId, enemyName, youWon) {
 	this.id = id;
 	this.status = status;
 	this.yourTurn = yourTurn;
 	this.enemyId = enemyId;
 	this.enemyName = enemyName;
+	this.win = youWon;
 }
 
 Game.prototype = {
@@ -41,5 +42,9 @@ Game.prototype = {
 
 	getEnemyBoard: function () {
 		return this.enemyBoard;
+	},
+
+	youWon: function() {
+		return this.win;
 	}
 }

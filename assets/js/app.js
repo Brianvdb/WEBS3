@@ -47,7 +47,7 @@ App.prototype = {
 			} else if (data.status == 'setup') {
 				game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName);
 			} else if (data.status == 'started' || data.status == 'done') {
-				game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName);
+				game = new Game(data._id, data.status, data.yourTurn, data.enemyId, data.enemyName, data.youWon);
 
 				game.setMyBoard(self.parseBoard(data.myGameboard, false));
 				game.setEnemyBoard(self.parseBoard(data.enemyGameboard, true));
