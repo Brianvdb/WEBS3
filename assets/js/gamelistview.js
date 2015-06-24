@@ -1,7 +1,7 @@
 function GameListView(app) {
 	this.app = app;
-	var quotes = this.app.languages.getTranslation('quotes');
 	window.setInterval(function() {
+		var quotes = app.languages.getTranslation('quotes');
 		$('.flip-container').toggleClass('hover');
 		if ($('#notification[style*="display:none"]')) {
 			var random = Math.floor(Math.random() * quotes.length);
